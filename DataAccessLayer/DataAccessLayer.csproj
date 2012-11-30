@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF7CACE0-5503-489B-AA56-D720F9BE4BF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministrationDAL.cs" />
+    <Compile Include="Connection\Connection.cs" />
+    <Compile Include="CommonDAL.cs" />
+    <Compile Include="AppointmentDAL.cs" />
+    <Compile Include="Jobs\Jobs_HotOppsHomeDAL.cs" />
+    <Compile Include="Jobs\Job_ApplyDAL.cs" />
+    <Compile Include="Jobs\Job_CandidateDetailsDAL.cs" />
+    <Compile Include="Jobs\Job_CandidateViewDAL.cs" />
+    <Compile Include="Jobs\Job_FacilityDAL.cs" />
+    <Compile Include="Jobs\Job_HotOppsColVisibleDAL.cs" />
+    <Compile Include="Jobs\Job_HrAccessDAL.cs" />
+    <Compile Include="Jobs\Job_HrLoginDAL.cs" />
+    <Compile Include="Jobs\Job_JobsDAL.cs" />
+    <Compile Include="Jobs\Job_LocationDAL.cs" />
+    <Compile Include="Jobs\Job_NewsLetterHomeDAL.cs" />
+    <Compile Include="Jobs\Job_SearchDescriptionColVisibleDAL.cs" />
+    <Compile Include="Jobs\Job_SearchDescriptionDAL.cs" />
+    <Compile Include="Jobs\Job_SearchResultsColVisibleDAL.cs" />
+    <Compile Include="Jobs\Job_SearchResultsDAL.cs" />
+    <Compile Include="Jobs\Job_SearchWidgetColVisibleDAL.cs" />
+    <Compile Include="Jobs\Job_SpecialityDAL.cs" />
+    <Compile Include="LoginDAL.cs" />
+    <Compile Include="LandingDAL.cs" />
+    <Compile Include="SearchDAL.cs" />
+    <Compile Include="ServiceDAL.cs" />
+    <Compile Include="DoctorDAL.cs" />
+    <Compile Include="OrganizationDAL.cs" />
+    <Compile Include="PatientDAL.cs" />
+    <Compile Include="MasterDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Connection\SQLHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

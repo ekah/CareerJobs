@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MOBILE CWS - Home</title>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link href="Styles/Styles.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="initial-scale=2.3, user-scalable=no" />
+    <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <style type="text/css">
+        img.c2 {
+            float: right;
+        }
+        div.c1 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainwrapper">
+        <div class="headerwrapper">
+            <!--Header -->
+            <div class="logo">
+                <img src="images/logo.png" width="107" height="40" /></div>
+            <div class="title">
+                <img src="images/title.png" width="83" height="40" />
+            </div>
+        </div>
+        <div class="bannerwrapper">
+            <!--Image Banner-->
+            <div class="banner">
+                <img src="images/home-banner.jpg" width="320" height="160" />
+            </div>
+        </div>
+
+        <div class="searchwrapper">
+            <div class="QuickSearch">
+                <div class="Searchbox">
+                    <input class="input" type="search" name="search" id="search-basic" value="" /></div>
+                <div class="searchbutton">
+                    <img src="images/search-btn.png" width="58" height="36" />
+                    <img src="images/adv-search.png" width="82" class="OpenImg" height="36" /></div>
+            </div>
+
+            <div class="advSearch">
+                <div class="title">Advanced Job Search <span class="Close"></span></div>
+                <div class="HomeSearch">
+                    <div class="InpWrap">
+                        <div class="TxtBxWrap1">
+                            <div class="jbselection1Wrap">
+                                <select class="jbselection1" name="mobilesearch_0$StateListBox1" size="1">
+                                    <option value="-1" selected="selected">Locations</option>
+                                    <option value="12">Hawaii</option>
+                                    <option value="29">Nevada</option>
+                                    <option value="33">New York</option>
+                                </select>
+                            </div>
+                            <div class="jbselection1Wrap">
+                                <select class="jbselection1" name="mobilesearch_0$AnswerListBox2" size="1">
+                                    <option value="-1">Employment Types</option>
+                                </select>
+                            </div>
+                            <div class="jbselection1Wrap"></div>
+                        </div>
+                        <div class="TxtBxWrap1">
+                            <div class="jbselection1Wrap">
+                                <select class="jbselection1" name="mobilesearch_0$AnswerListBox1" size="1">
+                                    <option value="-1" selected="selected">Area Of Talent</option>
+                                    <option value="507369">Corporate</option>
+                                    <option value="507370">Guest Services</option>
+                                    <option value="507371">On-Site Marketing</option>
+                                    <option value="507372">Operations/Facilities</option>
+                                    <option value="507373">Sales</option>
+                                    <option value="512965">Call Center</option>
+                                </select>
+                            </div>
+                            <div class="jbselection1Wrap">
+                                <select class="jbselection1" name="mobilesearch_0$AnswerListBox3" size="1">
+                                    <option value="-1" selected="selected">Job Shifts</option>
+                                    <option value="507363">Day Job</option>
+                                    <option value="507364">Evening Job</option>
+                                    <option value="507365">Overnight</option>
+                                    <option value="507366">On Call</option>
+                                    <option value="507367">Full Availability</option>
+                                    <option value="507368">Weekend</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit Button" style="width: 70% !important; margin: 0 auto;" />
+                </div>
+            </div>
+        </div>
+        <!--Search-->
+
+        <div class="contentwrapper">
+            <!--Content-->
+            <ul class="menu">
+                <li><a href="aot.html" data-role="button" data-iconpos="right" data-icon="star">Area of Talent</a> </li>
+                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="home">College</a></li>
+                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="info">Why Choose Discover</a></li>
+                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="grid">Recruitment Events</a></li>
+                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="search">Stay Connected</a></li>
+            </ul>
+            <br />
+            <br />
+            <br />
+            <div class="social">
+                <img src="images/socialicons.png" width="126" height="36" />
+            </div>
+        </div>
+
+
+
+        <div class="footerwrapper">View Full Site  </div>
+
+
+    </div>
+    <!--Main Site container -->
+
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        $('.OpenImg').click(function () {
+            $('.advSearch').show();
+            $('.QuickSearch').hide();
+        });
+        $('.Close').click(function () {
+            $('.QuickSearch').show();
+            $('.advSearch').hide();
+        });
+        $(window).load(function () {
+            var w = $(window).width();
+            $('.Searchbox .input').css("width", (w - 220));
+        });
+        $(window).resize(function () {
+            var w = $(window).width();
+            $('.Searchbox .input').css("width", (w - 220));
+        });
+        //]]>
+    </script>
+</body>
+</html>
+
+

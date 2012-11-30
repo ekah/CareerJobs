@@ -1,0 +1,12 @@
+#jqb_object img{ 	border: none;}
+#jqb_object { 	position:relative;	width:987px; height:302px; 	overflow:hidden;}
+#jqb_object .jqb_bar{	position:absolute;	width:980px; height: 33px;	left:0px;	top:15px;	background: none; font-size: 18px;}
+#jqb_object .jqb_bar #ctl00_cphMaster_txt{ float:right; width:118px; color:#005da5; line-height:35px;font-size:30px; font-family: 'BebasNeueRegular'; color:#005da5;}
+#jqb_object .jqb_slide{	position:absolute;	width:987px; height:302px; 	font-family: Arial, Verdana, Sans-Serif;	font-weight: bold;	font-size: 18px;	letter-spacing: -1px;	text-align: left;}
+#jqb_object .jqb_info{	position:absolute;	padding: 2px 10px 2px 10px;	float: left;}
+#jqb_object .jqb_btn{	width: 40px; height: 40px;	float: right; cursor:pointer; }
+
+
+
+
+

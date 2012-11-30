@@ -1,0 +1,2 @@
+sqlmetal.exe  /namespace:"mobilesitedesigner.Data.dbml"  /context:"DataContext"  /views /sprocs /functions  /language:csharp /code:C:\inetpub\wwwroot\CareerJobs\mobilesitedesigner\Data\dbml\DB.cs /conn:"Data Source=192.168.2.206\SQL2008;Initial Catalog=careerjobs_dev;Persist Security Info=True;User ID=hodes;Password=password!@#;connection timeout=60;Max Pool Size = 1000;Min Pool Size = 100;" /serialization:Unidirectional
+

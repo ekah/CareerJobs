@@ -1,0 +1,2305 @@
+﻿
+--select 'insert into tbl_geopostcodes_country values (''' + CountryCode + ''',''' + REPLACE(ISNULL(CountryName, '') + ''',' + cast(InternationalCode as varchar) + ')' from tbl_geopostcodes_country order by CountryId
+
+--select 'insert into tbl_geopostcodes_state values (''' + REPLACE(ISNULL(StateName, ''), '''', '''''') + ''',''' + ISNULL(StateCode, '') + ''',''' + ISNULL(CountryCode, '') + ''')' from tbl_geopostcodes_state order by StateId
+
+--select 'insert into tbl_geopostcodes_city values (''' + REPLACE(ISNULL(CityName, ''), '''', '''''') + ''',''' + ISNULL(StateCode, '') + ''',''' + ISNULL(CountryCode, '') + ''')' from TBL_GeoPostcodes_City order by CityId
+
+
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (1, 'Anaesthesiology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (1, 'Anaesthesiology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (2, 'Cardiology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (2, 'Cardiology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (3, 'CardiothoracicSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (3, 'CardiothoracicSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (4, 'ChestTBMedicine-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (4, 'ChestTBMedicine-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (5, 'Dentistry-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (5, 'Dentistry-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (6, 'Dermatology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (6, 'Dermatology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (7, 'Endocrinology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (7, 'Endocrinology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (8, 'ENTSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (8, 'ENTSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (9, 'GeneralMedicine-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (9, 'GeneralMedicine-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (10, 'GeneralSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (10, 'GeneralSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (11, 'Geriatrics-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (11, 'Geriatrics-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (12, 'InfectionControlSpecialist-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (12, 'InfectionControlSpecialist-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (13, 'MedicalGastroenterology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (13, 'MedicalGastroenterology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (14, 'Microbiology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (14, 'Microbiology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (18, 'Neurology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (18, 'Neurology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (19, 'ObstetricsGynaecology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (19, 'ObstetricsGynaecology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (20, 'MedicalOncology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (20, 'MedicalOncology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (21, 'Ophthalmology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (21, 'Ophthalmology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (22, 'OralFaciomaxillarySurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (22, 'OralFaciomaxillarySurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (23, 'OrthopaedicOncology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (23, 'OrthopaedicOncology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (24, 'OrthopaedicSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (24, 'OrthopaedicSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (26, 'PaediatricMedicine-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (26, 'PaediatricMedicine-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (25, 'PaediatricSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (25, 'PaediatricSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (27, 'Physiotherapy-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (27, 'Physiotherapy-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (28, 'PlasticSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (28, 'PlasticSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (29, 'Psychiatry-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (29, 'Psychiatry-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (30, 'Radiology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (30, 'Radiology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (31, 'SpeechLanguageHearing-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (31, 'SpeechLanguageHearing-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (32, 'SurgicalGastroenterology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (32, 'SurgicalGastroenterology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (33, 'Urology-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (33, 'Urology-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (34, 'VascularSurgery-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (34, 'VascularSurgery-2.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (35, 'Venerealogy-1.jpg')
+INSERT INTO TBL_Master_Banner (DepartmentId, BannerFilename) VALUES (35, 'Venerealogy-2.jpg')
+
+INSERT INTO TBL_Master_Department VALUES('Anaesthesiology','Anaesthesiology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Cardiology','Cardiology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Cardiothoracic Surgery','Cardiothoracic Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Chest and TB Medicine','Chest and TB Medicine',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Dentistry','Dentistry',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Dermatology','Dermatology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Endocrinology','Endocrinology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('ENT Surgery','ENT Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('General Medicine','General Medicine',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('General Surgery','General Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Geriatrics','Geriatrics',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Infection Control Specialist','Infection Control Specialist',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Medical Gastroenterology','Medical Gastroenterology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Microbiology','Microbiology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Neonatology','Neonatology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Nephrology','Nephrology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Neuro Surgery','Neuro Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Neurology','Neurology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Obstetrics and Gynaecology','Obstetrics and Gynaecology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Oncology','Oncology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Ophthalmology','Ophthalmology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Oral and Faciomaxillary Surgery','Oral and Faciomaxillary Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Orthopaedic Oncology','Orthopaedic Oncology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Orthopaedic Surgery','Orthopaedic Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Paediatric Surgery','Paediatric Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Paediatric Medicine','Paediatric Medicine',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Physiotherapy','Physiotherapy',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Plastic Surgery','Plastic Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Psychiatry','Psychiatry',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Radiology','Radiology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Speech, Language and Hearing','Speech, Language and Hearing',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Surgical Gastroenterology','Surgical Gastroenterology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Urology','Urology',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Vascular Surgery','Vascular Surgery',0,1,GETDATE(),0)
+INSERT INTO TBL_Master_Department VALUES('Venerealogy','Venerealogy',0,1,GETDATE(),0)
+
+
+-----------------------------------------------------------------
+Data Transfer --- Latest Updated on 14 September 2011 at 05:45 PM
+-----------------------------------------------------------------
+
+SELECT * FROM TBL_Master_SymptomGroup
+
+SELECT * FROM TBL_Master_Symptom
+SELECT * FROM TBL_Master_Diagnosis
+SELECT * FROM TBL_Symptom_Diagnosis
+SELECT * FROM TBL_Diagnosis_Department
+
+--SELECT * FROM TBL_Doctor_Diagnosis
+
+--SELECT * FROM TBL_Service_Diagnosis
+
+INSERT INTO TBL_Master_Symptom
+SELECT 1, Symptom, Description, 1, 1, GETDATE(), NULL, 0 FROM medappointment_test.dbo.TBL_Master_Symptom
+
+
+INSERT INTO TBL_Master_Diagnosis
+SELECT Diagnosis, Description, 1, 1, GETDATE(), NULL, 0 FROM medappointment_test.dbo.TBL_Master_Diagnosis
+
+INSERT INTO TBL_Symptom_Diagnosis
+SELECT SymptomId, DiagnosisId FROM medappointment_test.dbo.TBL_Symptom_Diagnosis
+
+-------------------------------------------------------------
+Data Transfer --- Latest Updated on 12 August 2011 at 7:22 PM
+-------------------------------------------------------------
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_AccountType
+SELECT AccountTypeName, Prefix, CreatedOn, 0 FROM TBL_Master_AccountType
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_Department
+SELECT DepartmentName, Description, RequestedBy, IsApproved, CreatedOn, 0 FROM TBL_Master_Department
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_PastHistory
+SELECT PastHistoryName FROM TBL_Master_PastHistory
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_PersonalHistory
+SELECT PersonalHistoryName FROM TBL_Master_PersonalHistory
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_Preferential
+SELECT PreferentialName FROM TBL_Master_Preferential
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_Status
+SELECT StatusName FROM TBL_Master_Status
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_Country
+SELECT CountryName, CountryCode FROM TBL_Master_Country
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_State
+SELECT StateName, CountryId, StateCode FROM TBL_Master_State ORDER BY StateId
+
+INSERT INTO medappointment_dev.dbo.TBL_Master_City
+SELECT CityName, StateId, LocationId, CountryId FROM TBL_Master_City ORDER BY CityId
+
+SELECT * FROM TBL_Master_Symptom
+SELECT * FROM TBL_Master_SymptomGroup
+
+
+---------------------------------------------------------
+Tables --- Latest Updated on 13 July 2012 at 07:09 PM
+---------------------------------------------------------
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Admin_LoginType]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Admin_LoginType](
+	[LoginTypeId] [int] NOT NULL,
+	[LoginType] [nvarchar](25) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[LoginTypeId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Answer]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Answer](
+	[AnswerId] [int] NOT NULL,
+	[QuestionId] [int] NULL,
+	[Answer] [nvarchar](max) NULL,
+	[DoctorId] [int] NULL,
+	[IsPatient] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Answer] PRIMARY KEY CLUSTERED 
+(
+	[AnswerId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Appointment]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Appointment](
+	[AppointmentId] [int] IDENTITY(1,1) NOT NULL,
+	[PatientId] [int] NULL,
+	[OrganizationId] [int] NULL,
+	[ServiceId] [int] NULL,
+	[ServiceTimingId] [int] NULL,
+	[DoctorId] [int] NULL,
+	[DoctorTimingId] [int] NULL,
+	[AppointmentDate] [datetime] NULL,
+	[AppointmentTime] [nvarchar](15) NULL,
+	[Notes] [nvarchar](max) NULL,
+	[IsCarParking] [bit] NULL,
+	[CarNumber] [nvarchar](50) NULL,
+	[PreferentialId] [int] NULL,
+	[PreferentialBoarding] [nvarchar](15) NULL,
+	[DoctorClosingNotes] [nvarchar](max) NULL,
+	[StatusId] [int] NULL,
+	[IsDirectAppointment] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Appointment] PRIMARY KEY CLUSTERED 
+(
+	[AppointmentId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Appointment_Winservice]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Appointment_Winservice](
+	[WinServiceId] [int] IDENTITY(1,1) NOT NULL,
+	[AppointmentId] [int] NULL,
+	[PatientId] [int] NULL,
+	[DoctorId] [int] NULL,
+	[DoctorTimingId] [int] NULL,
+	[ServiceId] [int] NULL,
+	[ServiceTimingId] [int] NULL,
+	[EmailId] [nvarchar](250) NULL,
+	[MobileId] [nvarchar](50) NULL,
+	[AppointmentDate] [datetime] NULL,
+	[MessageDescription] [nvarchar](max) NULL,
+	[AccountTypeId] [int] NULL,
+	[IsSmsSent] [bit] NULL,
+	[IsEmailSent] [bit] NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[ExternalId] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_BlockCalendar]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_BlockCalendar](
+	[BlockId] [int] IDENTITY(1,1) NOT NULL,
+	[BlockTypeId] [int] NULL,
+	[Type] [bit] NULL,
+	[DoctorId] [int] NULL,
+	[ServiceId] [int] NULL,
+	[DoctorTimingId] [int] NULL,
+	[ServiceTimingId] [int] NULL,
+	[BlockStart] [datetime] NULL,
+	[BlockEnd] [datetime] NULL,
+	[Reason] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_BlockCalendar] PRIMARY KEY CLUSTERED 
+(
+	[BlockId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Diagnosis_Department]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Diagnosis_Department](
+	[DiagnosisId] [int] NULL,
+	[DepartmentId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Doctor]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Doctor](
+	[DoctorId] [int] IDENTITY(1,1) NOT NULL,
+	[LoginId] [int] NULL,
+	[OrganizationId] [int] NULL,
+	[DoctorName] [nvarchar](250) NULL,
+	[DateofBirth] [datetime] NULL,
+	[Gender] [bit] NULL,
+	[RegistrationYear] [int] NULL,
+	[RegistrationNumber] [nvarchar](50) NULL,
+	[Experience] [decimal](18, 1) NULL,
+	[Degrees] [nvarchar](500) NULL,
+	[Certifications] [nvarchar](500) NULL,
+	[PhotoName] [nvarchar](250) NULL,
+	[Mobile] [nvarchar](20) NULL,
+	[DepartmentId] [int] NULL,
+	[PreferredName] [nvarchar](250) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ReferenceToken] [nvarchar](10) NULL,
+	[IsActivated] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[UniversityId] [int] NULL,
+ CONSTRAINT [PK_TBL_Doctor] PRIMARY KEY CLUSTERED 
+(
+	[DoctorId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Doctor_Diagnosis]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Doctor_Diagnosis](
+	[DoctorId] [int] NULL,
+	[DiagnosisId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Doctor_Education]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Doctor_Education](
+	[EducationId] [int] IDENTITY(1,1) NOT NULL,
+	[University] [nvarchar](max) NULL,
+	[Degree] [nvarchar](max) NULL,
+	[CountryId] [int] NULL,
+	[StateId] [int] NULL,
+	[CityId] [int] NULL,
+	[YearFrom] [int] NULL,
+	[YearTo] [int] NULL,
+	[Notes] [nvarchar](max) NULL,
+	[DoctorId] [int] NULL,
+ CONSTRAINT [PK_TBL_Doctor_Education] PRIMARY KEY CLUSTERED 
+(
+	[EducationId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Doctor_Experience]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Doctor_Experience](
+	[ExperienceId] [int] IDENTITY(1,1) NOT NULL,
+	[MedicalServiceName] [nvarchar](max) NULL,
+	[Title] [nvarchar](max) NULL,
+	[CountryId] [int] NULL,
+	[StateId] [int] NULL,
+	[CityId] [int] NULL,
+	[YearFrom] [int] NULL,
+	[MonthFrom] [int] NULL,
+	[YearTo] [int] NULL,
+	[MonthTo] [int] NULL,
+	[Notes] [nvarchar](max) NULL,
+	[DoctorId] [int] NULL,
+ CONSTRAINT [PK_TBL_Doctor_Experience] PRIMARY KEY CLUSTERED 
+(
+	[ExperienceId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Doctor_Timing]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Doctor_Timing](
+	[DoctorTimingId] [int] IDENTITY(1,1) NOT NULL,
+	[DoctorId] [int] NULL,
+	[ScheduleName] [nvarchar](1000) NULL,
+	[Address] [nvarchar](1000) NULL,
+	[Sunday] [bit] NULL,
+	[Monday] [bit] NULL,
+	[Tuesday] [bit] NULL,
+	[Wednesday] [bit] NULL,
+	[Thursday] [bit] NULL,
+	[Friday] [bit] NULL,
+	[Saturday] [bit] NULL,
+	[StartTime] [nvarchar](15) NULL,
+	[EndTime] [nvarchar](15) NULL,
+	[PatientDuration] [int] NULL,
+	[IsApprovalSystem] [bit] NULL,
+	[IsApprovalNotificationSMS] [bit] NULL,
+	[IsApprovalNotificationEmail] [bit] NULL,
+	[MaxAppointmentDays] [int] NULL,
+	[IsDefaultAddress] [bit] NULL,
+	[IsCarParkFacility] [bit] NULL,
+	[IsFCFS] [bit] NULL,
+	[MaxApps] [int] NULL,
+	[AppointmentType] [int] NULL,
+	[Conditions] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Doctor_Timing] PRIMARY KEY CLUSTERED 
+(
+	[DoctorTimingId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Feedback]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Feedback](
+	[FeedbackId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](150) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Feedback] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Feedback] PRIMARY KEY CLUSTERED 
+(
+	[FeedbackId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GeoPostcodes]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GeoPostcodes](
+	[Country] [nvarchar](2) NOT NULL,
+	[Language] [nvarchar](2) NOT NULL,
+	[ID] [bigint] NOT NULL,
+	[RegISO2] [nvarchar](6) NULL,
+	[Region1] [nvarchar](60) NULL,
+	[Region2] [nvarchar](60) NULL,
+	[Region3] [nvarchar](60) NULL,
+	[Region4] [nvarchar](60) NULL,
+	[ZIP] [nvarchar](10) NULL,
+	[City] [nvarchar](60) NULL,
+	[Area1] [nvarchar](80) NULL,
+	[Area2] [nvarchar](80) NULL,
+	[Lat] [float] NULL,
+	[Lng] [float] NULL,
+	[TZ] [nvarchar](30) NULL,
+	[UTC] [nvarchar](10) NULL,
+	[DST] [nvarchar](1) NULL,
+ CONSTRAINT [PK_TBL_GeoPostcodes] PRIMARY KEY CLUSTERED 
+(
+	[Country] ASC,
+	[Language] ASC,
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GeoPostcodes_City]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GeoPostcodes_City](
+	[CityId] [int] IDENTITY(1,1) NOT NULL,
+	[CityName] [nvarchar](120) NULL,
+	[StateCode] [nvarchar](6) NULL,
+	[CountryCode] [nvarchar](2) NULL,
+ CONSTRAINT [PK_TBL_GeoPostcodes_City] PRIMARY KEY CLUSTERED 
+(
+	[CityId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GeoPostcodes_Country]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GeoPostcodes_Country](
+	[CountryId] [int] IDENTITY(1,1) NOT NULL,
+	[CountryCode] [nvarchar](2) NOT NULL,
+	[CountryName] [nvarchar](60) NULL,
+	[InternationalCode] [int] NULL,
+ CONSTRAINT [PK_TBL_GeoPostcode_Country] PRIMARY KEY CLUSTERED 
+(
+	[CountryId] ASC,
+	[CountryCode] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GeoPostcodes_State]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GeoPostcodes_State](
+	[StateId] [int] IDENTITY(1,1) NOT NULL,
+	[StateName] [nvarchar](500) NULL,
+	[StateCode] [nvarchar](6) NULL,
+	[CountryCode] [nvarchar](2) NOT NULL,
+ CONSTRAINT [PK_TBL_GeoPostcodes_State_1] PRIMARY KEY CLUSTERED 
+(
+	[StateId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GupShup]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GupShup](
+	[ExternalId] [nvarchar](100) NULL,
+	[DeliveredTS] [nvarchar](50) NULL,
+	[Status] [nvarchar](10) NULL,
+	[PhoneNo] [nvarchar](100) NULL,
+	[Cause] [nvarchar](100) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_GupShup_FailureReason]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_GupShup_FailureReason](
+	[Id] [int] NOT NULL,
+	[KeyWord] [nvarchar](100) NULL,
+	[Description] [nvarchar](1000) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_Apply]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_Apply](
+	[Aid] [int] IDENTITY(1,1) NOT NULL,
+	[JobId] [nvarchar](max) NULL,
+	[CandidateName] [nvarchar](max) NULL,
+	[Age] [nvarchar](max) NULL,
+	[Sex] [nvarchar](max) NULL,
+	[PermanentAddress] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[City] [nvarchar](max) NULL,
+	[District] [nvarchar](max) NULL,
+	[State] [nvarchar](max) NULL,
+	[Country] [nvarchar](max) NULL,
+	[AboutUs] [nvarchar](max) NULL,
+	[ContactPhone] [nvarchar](max) NULL,
+	[ContactMobile] [nvarchar](max) NULL,
+	[BestTime] [nvarchar](max) NULL,
+	[Specialization] [nvarchar](max) NULL,
+	[Experience] [nvarchar](max) NULL,
+	[HighestQualification] [nvarchar](max) NULL,
+	[HighestDegree] [nvarchar](max) NULL,
+	[CurrentEmployer] [nvarchar](max) NULL,
+	[ExistingPay] [nvarchar](max) NULL,
+	[DesiredPay] [nvarchar](max) NULL,
+	[Willing] [nvarchar](max) NULL,
+	[UploadResume] [nvarchar](max) NULL,
+	[AppliedDate] [datetime] NULL,
+	[HrStatus] [nvarchar](max) NULL,
+	[HrDateUpdated] [datetime] NULL,
+	[FinalStatus] [nvarchar](max) NULL,
+	[Notes] [nvarchar](max) NULL,
+	[ClientId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_Facility]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_Facility](
+	[FacId] [int] IDENTITY(1,1) NOT NULL,
+	[Facility] [nvarchar](max) NULL,
+	[Visibility] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_HotOppsColVisible]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_HotOppsColVisible](
+	[HId] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [bit] NULL,
+	[State] [bit] NULL,
+	[City] [bit] NULL,
+	[Facility] [bit] NULL,
+	[Speciality] [bit] NULL,
+	[PostedDate] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_HrLogin]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_HrLogin](
+	[Hid] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_Jobs]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_Jobs](
+	[Jid] [int] IDENTITY(1,1) NOT NULL,
+	[JobId] [nvarchar](max) NULL,
+	[JobTitle] [nvarchar](max) NULL,
+	[Facility] [int] NULL,
+	[Speciality] [int] NULL,
+	[Location] [int] NULL,
+	[Description] [nvarchar](max) NULL,
+	[Visibility] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_Location]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_Location](
+	[Lid] [int] IDENTITY(1,1) NOT NULL,
+	[CountryId] [int] NULL,
+	[StateId] [int] NULL,
+	[CityId] [int] NULL,
+	[Visibility] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_NewsLetter]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_NewsLetter](
+	[Nid] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[PostedDate] [datetime] NULL,
+	[ClientId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_SearchDescriptionColVisible]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_SearchDescriptionColVisible](
+	[SdId] [int] IDENTITY(1,1) NOT NULL,
+	[JobId] [bit] NULL,
+	[JobTitle] [bit] NULL,
+	[Facility] [bit] NULL,
+	[Speciality] [bit] NULL,
+	[Country] [bit] NULL,
+	[State] [bit] NULL,
+	[City] [bit] NULL,
+	[Description] [bit] NULL,
+	[PostedDate] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_SearchResultsColVisible]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_SearchResultsColVisible](
+	[SrId] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [bit] NULL,
+	[State] [bit] NULL,
+	[City] [bit] NULL,
+	[Facility] [bit] NULL,
+	[Speciality] [bit] NULL,
+	[PostDate] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_SearchWidgetColVisible]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_SearchWidgetColVisible](
+	[SwId] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [bit] NULL,
+	[State] [bit] NULL,
+	[City] [bit] NULL,
+	[Facility] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_Speciality]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_Speciality](
+	[SpcId] [int] IDENTITY(1,1) NOT NULL,
+	[SpecialityId] [int] NULL,
+	[Visibility] [bit] NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Job_SubAdminLogin]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Job_SubAdminLogin](
+	[Sid] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+	[ClientId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[WhoCreated] [nvarchar](max) NULL,
+	[WhoUpdated] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_KeywordSMS]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_KeywordSMS](
+	[KeywordSMSId] [int] IDENTITY(1,1) NOT NULL,
+	[PhoneCode] [nvarchar](25) NULL,
+	[Keyword] [nvarchar](100) NULL,
+	[Location] [nvarchar](250) NULL,
+	[Carrier] [nvarchar](250) NULL,
+	[Contents] [nvarchar](max) NULL,
+	[PhoneNo] [nvarchar](25) NULL,
+	[Time] [nvarchar](100) NULL,
+	[CreatedOn] [datetime] NULL,
+ CONSTRAINT [PK_TBL_KeywordSMS] PRIMARY KEY CLUSTERED 
+(
+	[KeywordSMSId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing](
+	[LandingId] [int] IDENTITY(1,1) NOT NULL,
+	[Version] [int] NULL,
+	[PublishId] [int] NULL,
+	[BannerPath] [nvarchar](max) NULL,
+	[DepartmentId] [int] NULL,
+	[Forms] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+ CONSTRAINT [PK_TBL_Landing] PRIMARY KEY CLUSTERED 
+(
+	[LandingId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing_ImageGallery]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing_ImageGallery](
+	[ImageId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountId] [int] NULL,
+	[AccountTypeId] [int] NULL,
+	[Version] [int] NULL,
+	[ImageName] [nvarchar](max) NULL,
+	[ImageDescription] [nvarchar](max) NULL,
+	[Images] [varbinary](max) NULL,
+	[Selected] [bit] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing_MainTab]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing_MainTab](
+	[MainTabId] [int] IDENTITY(1,1) NOT NULL,
+	[MainTabName] [nvarchar](50) NULL,
+	[MainTabContent] [text] NULL,
+	[LandingId] [int] NULL,
+ CONSTRAINT [PK_TBL_Landing_MainTab] PRIMARY KEY CLUSTERED 
+(
+	[MainTabId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing_Publish]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing_Publish](
+	[PublishId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountId] [int] NULL,
+	[AccountTypeId] [int] NULL,
+	[BannerId] [int] NULL,
+	[DefaultVersion] [int] NULL,
+ CONSTRAINT [PK_TBL_Landing_Publish] PRIMARY KEY CLUSTERED 
+(
+	[PublishId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing_SubTab]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing_SubTab](
+	[SubTabId] [int] IDENTITY(1,1) NOT NULL,
+	[SubTabName] [nvarchar](50) NULL,
+	[SubTabContent] [text] NULL,
+	[MainTabId] [int] NULL,
+ CONSTRAINT [PK_TBL_Landing_SubTab] PRIMARY KEY CLUSTERED 
+(
+	[SubTabId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Landing_VideoGallery]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[TBL_Landing_VideoGallery](
+	[AccountId] [int] NULL,
+	[AccountTypeId] [int] NULL,
+	[Version] [int] NULL,
+	[VideoContent] [varchar](max) NULL,
+	[Selected] [bit] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Login]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Login](
+	[LoginId] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](150) NULL,
+	[LastName] [nvarchar](150) NULL,
+	[MedAppId] [nvarchar](15) NULL,
+	[CountryId] [int] NULL,
+	[MobileId] [nvarchar](20) NULL,
+	[EmailId] [nvarchar](250) NULL,
+	[Password] [nvarchar](15) NULL,
+	[IsDirect] [bit] NULL,
+	[IsActivated] [bit] NULL,
+	[IsEmailActivated] [bit] NULL,
+	[TransactionToken] [nvarchar](max) NULL,
+	[IsEmailNotification] [bit] NULL,
+	[IsSMSNotification] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Login] PRIMARY KEY CLUSTERED 
+(
+	[LoginId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_AccountType]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_AccountType](
+	[AccountTypeId] [int] IDENTITY(1,1) NOT NULL,
+	[AccountTypeName] [nvarchar](50) NULL,
+	[Prefix] [nvarchar](5) NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NOT NULL,
+ CONSTRAINT [PK_TBL_AccountType] PRIMARY KEY CLUSTERED 
+(
+	[AccountTypeId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Banner]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Banner](
+	[BannerId] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentId] [int] NULL,
+	[BannerFilename] [nvarchar](max) NULL,
+ CONSTRAINT [PK_TBL_Master_Banner] PRIMARY KEY CLUSTERED 
+(
+	[BannerId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_City_old]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_City_old](
+	[CityId] [int] IDENTITY(1,1) NOT NULL,
+	[CityName] [nvarchar](350) NULL,
+	[StateId] [int] NULL,
+	[LocationId] [nvarchar](1000) NULL,
+	[CountryId] [int] NULL,
+ CONSTRAINT [PK_TBL_CityMaster] PRIMARY KEY CLUSTERED 
+(
+	[CityId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Country_old]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Country_old](
+	[CountryId] [int] IDENTITY(1,1) NOT NULL,
+	[CountryName] [nvarchar](250) NULL,
+	[CountryCode] [nvarchar](1000) NULL,
+	[InternationalCode] [int] NULL,
+ CONSTRAINT [PK_TBL] PRIMARY KEY CLUSTERED 
+(
+	[CountryId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Department]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Department](
+	[DepartmentId] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentName] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[RequestedBy] [int] NULL,
+	[IsApproved] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [int] NULL,
+ CONSTRAINT [PK_TBL_DepartmentMaster] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Diagnosis]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Diagnosis](
+	[DiagnosisId] [int] IDENTITY(1,1) NOT NULL,
+	[Diagnosis] [nvarchar](250) NULL,
+	[Description] [nvarchar](1000) NULL,
+	[RequestedBy] [int] NULL,
+	[IsApproved] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+	[IsTreatment] [bit] NULL,
+ CONSTRAINT [PK_TBL_Master_Diagnosis] PRIMARY KEY CLUSTERED 
+(
+	[DiagnosisId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_FamilyHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_FamilyHistory](
+	[FamilyHistoryId] [int] IDENTITY(1,1) NOT NULL,
+	[FamilyHistoryName] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_Master_FamilyHistory] PRIMARY KEY CLUSTERED 
+(
+	[FamilyHistoryId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_PastHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_PastHistory](
+	[PastHistoryId] [int] IDENTITY(1,1) NOT NULL,
+	[PastHistoryName] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_Master_AllergyHistory] PRIMARY KEY CLUSTERED 
+(
+	[PastHistoryId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_PersonalHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_PersonalHistory](
+	[PersonalHistoryId] [int] IDENTITY(1,1) NOT NULL,
+	[PersonalHistoryName] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_Master_PersonalHistory] PRIMARY KEY CLUSTERED 
+(
+	[PersonalHistoryId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Preferential]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Preferential](
+	[PreferentialId] [int] IDENTITY(1,1) NOT NULL,
+	[PreferentialName] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_Master_Preferential] PRIMARY KEY CLUSTERED 
+(
+	[PreferentialId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Relationship]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Relationship](
+	[RelationshipId] [int] IDENTITY(1,1) NOT NULL,
+	[Relationship] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_Master_Relationship] PRIMARY KEY CLUSTERED 
+(
+	[RelationshipId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_State_old]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_State_old](
+	[StateId] [int] IDENTITY(1,1) NOT NULL,
+	[StateName] [nvarchar](250) NULL,
+	[CountryId] [int] NULL,
+	[StateCode] [nvarchar](1000) NULL,
+ CONSTRAINT [PK_TBL_StateMaster] PRIMARY KEY CLUSTERED 
+(
+	[StateId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Status]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Status](
+	[StatusId] [int] IDENTITY(1,1) NOT NULL,
+	[StatusName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_TBL_Master_Status] PRIMARY KEY CLUSTERED 
+(
+	[StatusId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_Symptom]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_Symptom](
+	[SymptomId] [int] IDENTITY(1,1) NOT NULL,
+	[SymptomGroupId] [int] NULL,
+	[Symptom] [nvarchar](250) NULL,
+	[Description] [nvarchar](1000) NULL,
+	[RequestedBy] [int] NULL,
+	[IsApproved] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+	[IsTreatment] [bit] NULL,
+ CONSTRAINT [PK_TBL_Master_Symptom] PRIMARY KEY CLUSTERED 
+(
+	[SymptomId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_SymptomGroup]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_SymptomGroup](
+	[SymptomGroupId] [int] IDENTITY(1,1) NOT NULL,
+	[SymptomGroup] [nvarchar](250) NULL,
+	[Description] [nvarchar](1000) NULL,
+	[RequestedBy] [int] NULL,
+	[IsApproved] [bit] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Master_SymptomGroup] PRIMARY KEY CLUSTERED 
+(
+	[SymptomGroupId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Master_University]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Master_University](
+	[UniversityId] [int] IDENTITY(1,1) NOT NULL,
+	[UniversityName] [nvarchar](max) NULL,
+	[CountryId] [int] NULL,
+ CONSTRAINT [PK_TBL_Master_University] PRIMARY KEY CLUSTERED 
+(
+	[UniversityId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Organization]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Organization](
+	[OrganizationId] [int] IDENTITY(1,1) NOT NULL,
+	[LoginId] [int] NULL,
+	[OrganizationName] [nvarchar](1000) NULL,
+	[CountryId] [int] NULL,
+	[StateId] [int] NULL,
+	[CityId] [int] NULL,
+	[BranchName] [nvarchar](250) NULL,
+	[Address] [nchar](1000) NULL,
+	[AddressLine1] [nvarchar](500) NULL,
+	[AddressLine2] [nvarchar](500) NULL,
+	[PostalCode] [nvarchar](50) NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[TimeZone] [nvarchar](1000) NULL,
+	[InCharge] [nvarchar](250) NULL,
+	[IsExternalReference] [bit] NOT NULL,
+	[MaxAppointmentDays] [int] NOT NULL,
+	[IsApprovalSystem] [bit] NULL,
+	[IsCarParkFacility] [bit] NULL,
+	[IsConditionsPage] [bit] NULL,
+	[SubDomain] [nvarchar](250) NULL,
+	[CNameUrl] [nvarchar](1000) NULL,
+	[WelcomeTitle] [nvarchar](1000) NULL,
+	[AboutOrganization] [nvarchar](3000) NULL,
+	[ReferedBy] [nvarchar](50) NULL,
+	[ReferenceToken] [nvarchar](10) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsActivated] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Organization] PRIMARY KEY CLUSTERED 
+(
+	[OrganizationId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient](
+	[PatientId] [int] IDENTITY(1,1) NOT NULL,
+	[LoginId] [int] NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[DateofBirth] [datetime] NULL,
+	[Gender] [bit] NULL,
+	[CountryId] [int] NULL,
+	[StateId] [int] NULL,
+	[CityId] [int] NULL,
+	[Address] [nvarchar](1000) NULL,
+	[AddressLine1] [nvarchar](500) NULL,
+	[AddressLine2] [nvarchar](500) NULL,
+	[PostalCode] [nvarchar](50) NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[RelationshipId] [int] NULL,
+	[ParentId] [int] NULL,
+	[ReferenceToken] [nvarchar](10) NULL,
+	[ReferedPatientId] [int] NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsActivated] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Patient] PRIMARY KEY CLUSTERED 
+(
+	[PatientId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient_FamilyHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient_FamilyHistory](
+	[PatientId] [int] NULL,
+	[FamilyHistoryId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient_PastHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient_PastHistory](
+	[PatientId] [int] NULL,
+	[PastHistoryId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient_PersonalHistory]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient_PersonalHistory](
+	[PatientId] [int] NULL,
+	[PersonalHistoryId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient_Reference]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient_Reference](
+	[ReferenceId] [int] IDENTITY(1,1) NOT NULL,
+	[PatientId] [int] NULL,
+	[OrganizationId] [int] NULL,
+	[ReferenceNumber] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TBL_PatientReference] PRIMARY KEY CLUSTERED 
+(
+	[ReferenceId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Patient_SearchCount]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Patient_SearchCount](
+	[SearchId] [int] IDENTITY(1,1) NOT NULL,
+	[PatientId] [int] NULL,
+	[CountryName] [nvarchar](250) NULL,
+	[StateName] [nvarchar](250) NULL,
+	[CityName] [nvarchar](350) NULL,
+	[Speciality] [nvarchar](1000) NULL,
+	[SpecialityType] [int] NULL,
+	[SearchCount] [int] NULL,
+	[SearchType] [int] NULL,
+	[CreatedOn] [datetime] NULL,
+ CONSTRAINT [PK_TBL_Patient_SearchCount] PRIMARY KEY CLUSTERED 
+(
+	[SearchId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Question]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Question](
+	[QuestionId] [int] IDENTITY(1,1) NOT NULL,
+	[PatientId] [int] NULL,
+	[Question] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Question] PRIMARY KEY CLUSTERED 
+(
+	[QuestionId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Rating]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Rating](
+	[RatingId] [int] IDENTITY(1,1) NOT NULL,
+	[AppointmentId] [int] NULL,
+	[Rating] [decimal](18, 1) NULL,
+ CONSTRAINT [PK_TBL_Rating] PRIMARY KEY CLUSTERED 
+(
+	[RatingId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Reference]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Reference](
+	[ReferenceId] [int] IDENTITY(1,1) NOT NULL,
+	[PatientId] [int] NULL,
+	[ReferedBy] [int] NULL,
+	[ReferedTo] [int] NULL,
+	[Reason] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Reference] PRIMARY KEY CLUSTERED 
+(
+	[ReferenceId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Service]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Service](
+	[ServiceId] [int] IDENTITY(1,1) NOT NULL,
+	[LoginId] [int] NULL,
+	[OrganizationId] [int] NULL,
+	[ServiceName] [nvarchar](250) NULL,
+	[InCharge] [nvarchar](250) NULL,
+	[DepartmentId] [int] NULL,
+	[Units] [int] NULL,
+	[Mobile] [nvarchar](20) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[ReferenceToken] [nvarchar](10) NULL,
+	[IsActivated] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_SubService] PRIMARY KEY CLUSTERED 
+(
+	[ServiceId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Service_Diagnosis]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Service_Diagnosis](
+	[ServiceId] [int] NULL,
+	[DiagnosisId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Service_Timing]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Service_Timing](
+	[ServiceTimingId] [int] IDENTITY(1,1) NOT NULL,
+	[ServiceId] [int] NULL,
+	[ScheduleName] [nvarchar](1000) NULL,
+	[Address] [nvarchar](1000) NULL,
+	[Sunday] [bit] NULL,
+	[Monday] [bit] NULL,
+	[Tuesday] [bit] NULL,
+	[Wednesday] [bit] NULL,
+	[Thursday] [bit] NULL,
+	[Friday] [bit] NULL,
+	[Saturday] [bit] NULL,
+	[StartTime] [nvarchar](15) NULL,
+	[EndTime] [nvarchar](15) NULL,
+	[PatientDuration] [nvarchar](15) NULL,
+	[IsApprovalSystem] [bit] NULL,
+	[IsApprovalNotificationSMS] [bit] NULL,
+	[IsApprovalNotificationEmail] [bit] NULL,
+	[MaxAppointmentDays] [int] NULL,
+	[IsDefaultAddress] [bit] NULL,
+	[IsCarParkFacility] [bit] NULL,
+	[IsFCFS] [bit] NULL,
+	[MaxApps] [int] NULL,
+	[AppointmentType] [int] NULL,
+	[Conditions] [nvarchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_SubService_Timing] PRIMARY KEY CLUSTERED 
+(
+	[ServiceTimingId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_SMS]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_SMS](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[LoginId] [int] NULL,
+	[Mobile] [nvarchar](50) NULL,
+	[AccountId] [int] NULL,
+	[AccountTypeId] [int] NULL,
+	[AppointmentId] [int] NULL,
+	[SMSMessage] [nvarchar](200) NULL,
+	[Action] [nvarchar](max) NULL,
+	[EmailCount] [int] NULL,
+	[MobileId] [nvarchar](100) NULL,
+	[ExternalId] [nvarchar](50) NULL,
+	[CreatedOn] [datetime] NULL,
+ CONSTRAINT [PK_TBL_SMS] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Symptom_Diagnosis]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Symptom_Diagnosis](
+	[SymptomId] [int] NULL,
+	[DiagnosisId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+USE [medappointment_dev]
+GO
+
+/****** Object:  Table [dbo].[TBL_Token]    Script Date: 07/13/2012 18:08:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TBL_Token](
+	[TokenId] [int] IDENTITY(1,1) NOT NULL,
+	[TokenNumber] [nvarchar](50) NULL,
+	[TokenSequence] [int] NULL,
+	[AppointmentId] [int] NULL,
+	[CreatedOn] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_TBL_Token] PRIMARY KEY CLUSTERED 
+(
+	[TokenId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[TBL_Answer]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Answer_TBL_Doctor] FOREIGN KEY([DoctorId])
+REFERENCES [dbo].[TBL_Doctor] ([DoctorId])
+GO
+
+ALTER TABLE [dbo].[TBL_Answer] CHECK CONSTRAINT [FK_TBL_Answer_TBL_Doctor]
+GO
+
+ALTER TABLE [dbo].[TBL_Answer]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Answer_TBL_Question] FOREIGN KEY([QuestionId])
+REFERENCES [dbo].[TBL_Question] ([QuestionId])
+GO
+
+ALTER TABLE [dbo].[TBL_Answer] CHECK CONSTRAINT [FK_TBL_Answer_TBL_Question]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_Doctor] FOREIGN KEY([DoctorId])
+REFERENCES [dbo].[TBL_Doctor] ([DoctorId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_Doctor]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_MainService] FOREIGN KEY([OrganizationId])
+REFERENCES [dbo].[TBL_Organization] ([OrganizationId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_MainService]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_Master_Preferential] FOREIGN KEY([PreferentialId])
+REFERENCES [dbo].[TBL_Master_Preferential] ([PreferentialId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_Master_Preferential]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_Master_Status] FOREIGN KEY([StatusId])
+REFERENCES [dbo].[TBL_Master_Status] ([StatusId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_Master_Status]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_Patient] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_Patient]
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Appointment_TBL_SubService] FOREIGN KEY([ServiceId])
+REFERENCES [dbo].[TBL_Service] ([ServiceId])
+GO
+
+ALTER TABLE [dbo].[TBL_Appointment] CHECK CONSTRAINT [FK_TBL_Appointment_TBL_SubService]
+GO
+
+ALTER TABLE [dbo].[TBL_BlockCalendar]  WITH CHECK ADD  CONSTRAINT [FK_TBL_BlockCalendar_TBL_Doctor_Timing] FOREIGN KEY([DoctorTimingId])
+REFERENCES [dbo].[TBL_Doctor_Timing] ([DoctorTimingId])
+GO
+
+ALTER TABLE [dbo].[TBL_BlockCalendar] CHECK CONSTRAINT [FK_TBL_BlockCalendar_TBL_Doctor_Timing]
+GO
+
+ALTER TABLE [dbo].[TBL_BlockCalendar]  WITH CHECK ADD  CONSTRAINT [FK_TBL_BlockCalendar_TBL_SubService_Timing] FOREIGN KEY([ServiceTimingId])
+REFERENCES [dbo].[TBL_Service_Timing] ([ServiceTimingId])
+GO
+
+ALTER TABLE [dbo].[TBL_BlockCalendar] CHECK CONSTRAINT [FK_TBL_BlockCalendar_TBL_SubService_Timing]
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Doctor_TBL_Login] FOREIGN KEY([LoginId])
+REFERENCES [dbo].[TBL_Login] ([LoginId])
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor] CHECK CONSTRAINT [FK_TBL_Doctor_TBL_Login]
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Doctor_TBL_Master_Department] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[TBL_Master_Department] ([DepartmentId])
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor] CHECK CONSTRAINT [FK_TBL_Doctor_TBL_Master_Department]
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Doctor_TBL_Organization] FOREIGN KEY([OrganizationId])
+REFERENCES [dbo].[TBL_Organization] ([OrganizationId])
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor] CHECK CONSTRAINT [FK_TBL_Doctor_TBL_Organization]
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor_Timing]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Doctor_Timing_TBL_Doctor] FOREIGN KEY([DoctorId])
+REFERENCES [dbo].[TBL_Doctor] ([DoctorId])
+GO
+
+ALTER TABLE [dbo].[TBL_Doctor_Timing] CHECK CONSTRAINT [FK_TBL_Doctor_Timing_TBL_Doctor]
+GO
+
+ALTER TABLE [dbo].[TBL_Master_City_old]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Master_City_TBL_Master_State] FOREIGN KEY([StateId])
+REFERENCES [dbo].[TBL_Master_State_old] ([StateId])
+GO
+
+ALTER TABLE [dbo].[TBL_Master_City_old] CHECK CONSTRAINT [FK_TBL_Master_City_TBL_Master_State]
+GO
+
+ALTER TABLE [dbo].[TBL_Master_State_old]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Master_State_TBL_Master_Country] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[TBL_Master_Country_old] ([CountryId])
+GO
+
+ALTER TABLE [dbo].[TBL_Master_State_old] CHECK CONSTRAINT [FK_TBL_Master_State_TBL_Master_Country]
+GO
+
+ALTER TABLE [dbo].[TBL_Master_Symptom]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Master_Symptom_TBL_Master_SymptomGroup] FOREIGN KEY([SymptomGroupId])
+REFERENCES [dbo].[TBL_Master_SymptomGroup] ([SymptomGroupId])
+GO
+
+ALTER TABLE [dbo].[TBL_Master_Symptom] CHECK CONSTRAINT [FK_TBL_Master_Symptom_TBL_Master_SymptomGroup]
+GO
+
+ALTER TABLE [dbo].[TBL_Organization]  WITH CHECK ADD  CONSTRAINT [FK_TBL_MainService_TBL_Master_City] FOREIGN KEY([CityId])
+REFERENCES [dbo].[TBL_Master_City_old] ([CityId])
+GO
+
+ALTER TABLE [dbo].[TBL_Organization] CHECK CONSTRAINT [FK_TBL_MainService_TBL_Master_City]
+GO
+
+ALTER TABLE [dbo].[TBL_Organization]  WITH CHECK ADD  CONSTRAINT [FK_TBL_MainService_TBL_Master_Country] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[TBL_Master_Country_old] ([CountryId])
+GO
+
+ALTER TABLE [dbo].[TBL_Organization] CHECK CONSTRAINT [FK_TBL_MainService_TBL_Master_Country]
+GO
+
+ALTER TABLE [dbo].[TBL_Organization]  WITH CHECK ADD  CONSTRAINT [FK_TBL_MainService_TBL_Master_State] FOREIGN KEY([StateId])
+REFERENCES [dbo].[TBL_Master_State_old] ([StateId])
+GO
+
+ALTER TABLE [dbo].[TBL_Organization] CHECK CONSTRAINT [FK_TBL_MainService_TBL_Master_State]
+GO
+
+ALTER TABLE [dbo].[TBL_Organization]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Organization_TBL_Login] FOREIGN KEY([LoginId])
+REFERENCES [dbo].[TBL_Login] ([LoginId])
+GO
+
+ALTER TABLE [dbo].[TBL_Organization] CHECK CONSTRAINT [FK_TBL_Organization_TBL_Login]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_TBL_Login] FOREIGN KEY([LoginId])
+REFERENCES [dbo].[TBL_Login] ([LoginId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient] CHECK CONSTRAINT [FK_TBL_Patient_TBL_Login]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_TBL_Master_City] FOREIGN KEY([CityId])
+REFERENCES [dbo].[TBL_Master_City_old] ([CityId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient] CHECK CONSTRAINT [FK_TBL_Patient_TBL_Master_City]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_TBL_Master_Country] FOREIGN KEY([CountryId])
+REFERENCES [dbo].[TBL_Master_Country_old] ([CountryId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient] CHECK CONSTRAINT [FK_TBL_Patient_TBL_Master_Country]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_TBL_Master_Relationship] FOREIGN KEY([RelationshipId])
+REFERENCES [dbo].[TBL_Master_Relationship] ([RelationshipId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient] CHECK CONSTRAINT [FK_TBL_Patient_TBL_Master_Relationship]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_TBL_Master_State] FOREIGN KEY([StateId])
+REFERENCES [dbo].[TBL_Master_State_old] ([StateId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient] CHECK CONSTRAINT [FK_TBL_Patient_TBL_Master_State]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PastHistory]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_PastHistory_TBL_Master_PastHistory] FOREIGN KEY([PastHistoryId])
+REFERENCES [dbo].[TBL_Master_PastHistory] ([PastHistoryId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PastHistory] CHECK CONSTRAINT [FK_TBL_Patient_PastHistory_TBL_Master_PastHistory]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PastHistory]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_PastHistory_TBL_Patient] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PastHistory] CHECK CONSTRAINT [FK_TBL_Patient_PastHistory_TBL_Patient]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PersonalHistory]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_PersonalHistory_TBL_Master_PersonalHistory] FOREIGN KEY([PersonalHistoryId])
+REFERENCES [dbo].[TBL_Master_PersonalHistory] ([PersonalHistoryId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PersonalHistory] CHECK CONSTRAINT [FK_TBL_Patient_PersonalHistory_TBL_Master_PersonalHistory]
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PersonalHistory]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Patient_PersonalHistory_TBL_Patient] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Patient_PersonalHistory] CHECK CONSTRAINT [FK_TBL_Patient_PersonalHistory_TBL_Patient]
+GO
+
+ALTER TABLE [dbo].[TBL_Question]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Question_TBL_Patient] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Question] CHECK CONSTRAINT [FK_TBL_Question_TBL_Patient]
+GO
+
+ALTER TABLE [dbo].[TBL_Question]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Question_TBL_Patient1] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Question] CHECK CONSTRAINT [FK_TBL_Question_TBL_Patient1]
+GO
+
+ALTER TABLE [dbo].[TBL_Rating]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Rating_TBL_Appointment] FOREIGN KEY([AppointmentId])
+REFERENCES [dbo].[TBL_Appointment] ([AppointmentId])
+GO
+
+ALTER TABLE [dbo].[TBL_Rating] CHECK CONSTRAINT [FK_TBL_Rating_TBL_Appointment]
+GO
+
+ALTER TABLE [dbo].[TBL_Reference]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Reference_TBL_Doctor] FOREIGN KEY([ReferedBy])
+REFERENCES [dbo].[TBL_Doctor] ([DoctorId])
+GO
+
+ALTER TABLE [dbo].[TBL_Reference] CHECK CONSTRAINT [FK_TBL_Reference_TBL_Doctor]
+GO
+
+ALTER TABLE [dbo].[TBL_Reference]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Reference_TBL_Doctor1] FOREIGN KEY([ReferedTo])
+REFERENCES [dbo].[TBL_Doctor] ([DoctorId])
+GO
+
+ALTER TABLE [dbo].[TBL_Reference] CHECK CONSTRAINT [FK_TBL_Reference_TBL_Doctor1]
+GO
+
+ALTER TABLE [dbo].[TBL_Reference]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Reference_TBL_Patient] FOREIGN KEY([PatientId])
+REFERENCES [dbo].[TBL_Patient] ([PatientId])
+GO
+
+ALTER TABLE [dbo].[TBL_Reference] CHECK CONSTRAINT [FK_TBL_Reference_TBL_Patient]
+GO
+
+ALTER TABLE [dbo].[TBL_Service]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Service_TBL_Login] FOREIGN KEY([LoginId])
+REFERENCES [dbo].[TBL_Login] ([LoginId])
+GO
+
+ALTER TABLE [dbo].[TBL_Service] CHECK CONSTRAINT [FK_TBL_Service_TBL_Login]
+GO
+
+ALTER TABLE [dbo].[TBL_Service]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Service_TBL_Organization] FOREIGN KEY([OrganizationId])
+REFERENCES [dbo].[TBL_Organization] ([OrganizationId])
+GO
+
+ALTER TABLE [dbo].[TBL_Service] CHECK CONSTRAINT [FK_TBL_Service_TBL_Organization]
+GO
+
+ALTER TABLE [dbo].[TBL_Service]  WITH CHECK ADD  CONSTRAINT [FK_TBL_SubService_TBL_Master_Department] FOREIGN KEY([DepartmentId])
+REFERENCES [dbo].[TBL_Master_Department] ([DepartmentId])
+GO
+
+ALTER TABLE [dbo].[TBL_Service] CHECK CONSTRAINT [FK_TBL_SubService_TBL_Master_Department]
+GO
+
+ALTER TABLE [dbo].[TBL_Service_Timing]  WITH CHECK ADD  CONSTRAINT [FK_TBL_SubService_Timing_TBL_SubService] FOREIGN KEY([ServiceId])
+REFERENCES [dbo].[TBL_Service] ([ServiceId])
+GO
+
+ALTER TABLE [dbo].[TBL_Service_Timing] CHECK CONSTRAINT [FK_TBL_SubService_Timing_TBL_SubService]
+GO
+
+ALTER TABLE [dbo].[TBL_Token]  WITH CHECK ADD  CONSTRAINT [FK_TBL_Token_TBL_Appointment] FOREIGN KEY([AppointmentId])
+REFERENCES [dbo].[TBL_Appointment] ([AppointmentId])
+GO
+
+ALTER TABLE [dbo].[TBL_Token] CHECK CONSTRAINT [FK_TBL_Token_TBL_Appointment]
+GO
+
+

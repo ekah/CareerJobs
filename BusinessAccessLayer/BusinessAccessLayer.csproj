@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C39EA9BD-E469-4CC9-88C0-8DB23F4564C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessAccessLayer</RootNamespace>
+    <AssemblyName>BusinessAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministrationBAL.cs" />
+    <Compile Include="CommonBAL.cs" />
+    <Compile Include="AppointmentBAL.cs" />
+    <Compile Include="CommunicationBAL.cs" />
+    <Compile Include="DataObjects\AccountSettingDO.cs" />
+    <Compile Include="DataObjects\BrandingDO.cs" />
+    <Compile Include="DataObjects\DoctorExperienceDO.cs" />
+    <Compile Include="DataObjects\DoctorEducationDO.cs" />
+    <Compile Include="DataObjects\PatientInfoDO.cs" />
+    <Compile Include="DataObjects\FamilyHistoryDO.cs" />
+    <Compile Include="DataObjects\ZipDailDO.cs" />
+    <Compile Include="DataObjects\LoginNewDO.cs" />
+    <Compile Include="Jobs\Jobs_HotOppsHomeBAL.cs" />
+    <Compile Include="Jobs\Job_ApplyBAL.cs" />
+    <Compile Include="Jobs\Job_CandidateDetailsBAL.cs" />
+    <Compile Include="Jobs\Job_CandidateViewBAL.cs" />
+    <Compile Include="Jobs\Job_FacilityBAL.cs" />
+    <Compile Include="Jobs\Job_HotOppsColVisibleBAL.cs" />
+    <Compile Include="Jobs\Job_HrAccessBAL.cs" />
+    <Compile Include="Jobs\Job_HrLoginBAL.cs" />
+    <Compile Include="Jobs\Job_JobsBAL.cs" />
+    <Compile Include="Jobs\Job_LocationBAL.cs" />
+    <Compile Include="Jobs\Job_NewsLetterHomeBAL.cs" />
+    <Compile Include="Jobs\Job_SearchDescriptionBAL.cs" />
+    <Compile Include="Jobs\Job_SearchDescriptionColVisibleBAL.cs" />
+    <Compile Include="Jobs\Job_SearchResultsBAL.cs" />
+    <Compile Include="Jobs\Job_SearchResultsColVisibleBAL.cs" />
+    <Compile Include="Jobs\Job_SearchWidgetColVisibleBAL.cs" />
+    <Compile Include="Jobs\Job_SpecialityBAL.cs" />
+    <Compile Include="LoginBAL.cs" />
+    <Compile Include="DataObjects\LandingPublishDO.cs" />
+    <Compile Include="LandingBAL.cs" />
+    <Compile Include="DataObjects\AppointmentDO.cs" />
+    <Compile Include="DataObjects\BlockCalendarDO.cs" />
+    <Compile Include="DataObjects\SubTabDO.cs" />
+    <Compile Include="DataObjects\MainTabDO.cs" />
+    <Compile Include="DataObjects\LandingDO.cs" />
+    <Compile Include="SearchBAL.cs" />
+    <Compile Include="ServiceBAL.cs" />
+    <Compile Include="DataObjects\ServiceDO.cs" />
+    <Compile Include="DataObjects\ScheduleDO.cs" />
+    <Compile Include="DoctorBAL.cs" />
+    <Compile Include="DataObjects\DoctorDO.cs" />
+    <Compile Include="DataObjects\OrganizationDO.cs" />
+    <Compile Include="OrganizationBAL.cs" />
+    <Compile Include="DataObjects\AccountTypeDO.cs" />
+    <Compile Include="DataObjects\LoginDO.cs" />
+    <Compile Include="DataObjects\PersonalHistoryDO.cs" />
+    <Compile Include="DataObjects\PastHistoryDO.cs" />
+    <Compile Include="PatientBAL.cs" />
+    <Compile Include="DataObjects\PatientDO.cs" />
+    <Compile Include="MasterBAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataObjects\SymptomDO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{BF7CACE0-5503-489B-AA56-D720F9BE4BF1}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

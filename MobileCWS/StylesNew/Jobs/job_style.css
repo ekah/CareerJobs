@@ -1,0 +1,64 @@
+
+
+
+
+/*Grid*/
+.gridpanelpadd{float:left;padding:22px 0 22px 19px;}
+.gridpanel{float:left;width:950px;}
+.RadGrid_Hay .rgCommandRow{background: url(/images/gridbg_adminpage.gif) repeat-x scroll 0 -2100px #406eb9 !important;}
+.RadGrid_Hay .rgCommandTable {border: solid #004d8a 1px !important;}
+.RadGrid_Hay thead .rgCommandCell {border: 1px solid #024981 !important;}
+.RadGrid_Hay {padding-bottom: 19px; border: 1px solid #d0d7e5 !important; color: #272722; }
+.RadGrid .rgRow td, .RadGrid .rgAltRow td, .RadGrid .rgEditRow td, .RadGrid .rgFooter td { border-color: #FFFFFF #FFFFFF #d0d7e5 #d0d7e5 !important; padding: 2px 3px 2px 6px !important;}
+.RadGrid_Hay .rgAltRow {background: none repeat scroll 0 0 #e2edfe !important;}
+.RadGrid_Hay .rgHeader, .RadGrid_Hay th.rgResizeCol {
+    background: url(/images/gridbg_adminpage.gif) repeat-x scroll 0 -2300px #406eb9 !important;border-color: -moz-use-text-color #406eb9 #5784cd #5784cd !important; border-style: none solid solid !important;
+    border-width: 0 1px 1px !important; padding-top: 4px !important;}
+.candidatedetails_subheadingbg { background: none repeat scroll 0 0 #1d4b95; color: #FFFFFF; font-size: 12px; font-weight: bold; height: 23px; margin: 0 auto; padding: 7px 0 0 20px; text-transform: capitalize; width: 969px;}
+.candidatecntbg_mid_cnt {display: inline-block;padding: 20px 15px 10px; width: 884px;}
+.RadGrid .rgHeader, .RadGrid th.rgResizeCol{ border-right: 1px solid #406eb9 !important;}
+.RadGrid_Hay .rgRow a, .RadGrid_Hay .rgAltRow a, .RadGrid_Hay .rgEditRow a, .RadGrid_Hay .rgFooter a, .RadGrid_Hay .rgEditForm a {color: #406eb9 !important;}
+.RadGrid_Hay .rgEditForm { background: none repeat scroll 0 0 #e2edfe !important; border-bottom: 1px solid #BBB99D;}
+
+/*Home */
+.content{margin: 18px auto 0 auto; width: 989px;}
+.content h2 {color: #FFFFFF;font-family: 'BebasNeueRegular',Arial;font-size: 37px; font-weight:normal; padding: 6px 0;margin:0;}
+.homebanner{float:left;width: 989px;height:345px;margin-top:-4px;}
+.careersearch, .newslettersignup { float: left; width: 310px;}
+.recentopportunities { float: left; margin: 0 29px; width: 310px;}
+.careersearch_top, .careersearch_btm, .recentopportunities_top, .recentopportunities_btm, .newslettersignup_top, .newslettersignup_btm {height: 8px; width: 310px;}
+.careersearch_mid, .newslettersignup_mid { background: none repeat scroll 0 0 #54b5ec; display: inline-block; height: auto !important; min-height: 196px; padding: 0 0 0 10px; width: 300px;}
+.recentopportunities_mid { background: none repeat scroll 0 0 #00599d;height: auto !important; min-height: 196px !important; padding: 0 0 0 10px; width: 300px;display: inline-block;}
+.RadGrid_Default, .RadGrid_Default .rgAltRow, .RadGrid_Default .rgRow a, .RadGrid_Default .rgAltRow a { background: none repeat scroll 0 0 transparent !important; border: 0 none !important; color: #FFFFFF !important;
+    font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 11px; width: 289px;}
+.RadGrid_Default .rgRow td, .RadGrid_Default .rgAltRow td { border: medium none !important;}
+.homenews span, .innernewslettersignup_mid span, .adminlogin span {color: red;}
+
+/* Secondary Page */
+
+.innercontent {padding:10px 0 0 0 ; width: 989px;float:left;}
+.innerlftpanel {float: left; width: 678px;}
+.innerrgtpanel {float: right; width: 276px;}
+.innerrgtpanel h2 { font-size: 37px;color: #FFFFFF;font-family: 'BebasNeueRegular',Arial;font-weight:normal;padding:0 0 4px 0;margin:0;}
+.innercntbg_top, .innercntbg_btm { height: 9px; width: 678px;}
+.innercntbg_mid { background: url(../../ImagesNew/jobs/innerpage_cntbgmiddle.gif) repeat-y scroll left top transparent; color: #666666; font-family: Arial,Helvetica,sans-serif; width: 678px;}
+.headingbg {background: none repeat scroll 0 0 #54b5ec;color: #FFFFFF; font-size: 19px; height: 51px; margin: 0 auto; text-transform: uppercase; width: 678px;}
+.RadGrid_Hay1 .rgHeader{ background-color: #406eb9 !important;}
+.innercareersearch_top, .innercareersearch_btm, .innerrecentopportunities_top, .innerrecentopportunities_btm, .innernewslettersignup_top, .innernewslettersignup_btm {height: 8px; width: 276px;display:inline-block;}
+.innercareersearch_mid, .innernewslettersignup_mid {background: none repeat scroll 0 0 #54b5ec; padding: 5px 0 0 10px; width: 266px;display:inline-block;}
+.innerrecentopportunities { float: left; margin: 11px 0; width: 276px;}
+.innerrecentopportunities_mid { background: none repeat scroll 0 0 #00599d;display: inline-block; padding: 5px 0 0 10px; width: 266px;}
+.searchdesc_subheadingbg {background:#00599d;color: #FFFFFF;font-size: 12px; font-weight:normal; height: 23px;padding: 7px 0 0 20px; text-transform: capitalize; width: 658px;}
+.jobdescinnercntbg_mid_cnt { display: inline-block; padding: 10px 15px; width: 647px;}
+.jobContents { display: block;float: left; overflow-y: auto; width: 642px;}
+.btnpadding { margin: 0 20px 0 0;}
+.backtosearchresults { color: #666666; font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 13px; font-weight:bold;}
+.sendtofriendcnt { width: 637px;}
+.applytxt {background: url(/images/LoginTextBoxBg.gif) repeat-x scroll left top transparent;border: 1px solid #D2D2D2; padding: 4px 5px; width: 250px;}
+.applymessage { color: #FF0000;}
+.vspace {padding: 3px 0;}
+
+
+
+
+.headingbg h3, .innersearchpageheadingbg h3 { font-family: 'BebasNeueRegular',arial;  font-size: 40px; font-weight: normal;  margin: 0;   padding: 13px 0 0 20px;}

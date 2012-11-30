@@ -1,0 +1,512 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mobile Site Designer Admin</title>
+
+
+    <link href="client/lib/extjs-4.1.1/resources/css/ext-standard.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="client/lib/extjs-4.1.1/ext-all.js"></script>
+    <script src="client/js/JsonStore.js"></script>
+    <script src="client/js/TreeJsonStore.js"></script>
+    <script src="client/js/PanelBase.js"></script>
+    <script src="client/js/Gridbase.js"></script>
+    <script src="client/js/Contentstoremodel.js"></script>
+    <script src="client/js/Pagestoremodel.js"></script>
+    <script type="text/javascript">
+        function SetCookie(cookieName, cookieValue, nDays) {
+            var today = new Date();
+            var expire = new Date();
+            if (nDays == null || nDays == 0) nDays = 1;
+            expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+            document.cookie = cookieName + "=" + escape(cookieValue)
+                            + ";expires=" + expire.toGMTString();
+        }
+        function ReadCookie(cookieName) {
+            var theCookie = " " + document.cookie;
+            var ind = theCookie.indexOf(" " + cookieName + "=");
+            if (ind == -1) ind = theCookie.indexOf(";" + cookieName + "=");
+            if (ind == -1 || cookieName == "") return "";
+            var ind1 = theCookie.indexOf(";", ind + 1);
+            if (ind1 == -1) ind1 = theCookie.length;
+            return unescape(theCookie.substring(ind + cookieName.length + 2, ind1));
+        }
+        Ext.Loader.setConfig({
+            enabled: true,
+            disableCaching: false,
+            paths:
+            {
+                'Ext.ux': 'client/lib/extjs-4.1.1/examples/ux'
+            }
+        });
+        Admin =
+        {
+            componentreq:
+            {
+                direct: ['Ext.direct.*'],
+                misc: ['Ext.util.*', 'Ext.selection.*', 'Ext.ux.grid.FiltersFeature', 'Ext.ux.RowExpander']
+            },
+            buildhis: [],
+            launch: function () {
+                Ext.Ajax.timeout = 600000;
+                Ext.Ajax.disableCaching = false;
+                var pagewin = Ext.create('widget.window', {
+                    title: 'Add Page',
+                    closable: true,
+                    closeAction: 'hide',
+                    items: [{
+                        xtype: 'form',
+                        frame: true,
+                        defaults: {
+                            anchor: '100%',
+                            allowBlank: true
+                        },
+                        items: [{
+                            xtype: 'hidden',
+                            name: 'ID'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'Location',
+                            fieldLabel: 'Location'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'MainSite',
+                            fieldLabel: 'Main Site Url'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'HeaderText',
+                            fieldLabel: 'Header Text'
+                        }, {
+                            xtype: 'filefield',
+                            emptyText: 'Select an image',
+                            fieldLabel: 'Page Image',
+                            name: 'PageImage',
+                            buttonText: 'Browse...'
+                        }, {
+                            xtype: 'filefield',
+                            emptyText: 'Select an image',
+                            fieldLabel: 'Header Image',
+                            name: 'HeaderImage',
+                            buttonText: 'Browse...'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'FooterText',
+                            fieldLabel: 'Footer Text'
+                        }, {
+                            xtype: 'filefield',
+                            emptyText: 'Select an image',
+                            fieldLabel: 'Footer Image',
+                            name: 'FooterImage',
+                            buttonText: 'Browse...'
+                        }],
+                        buttons: [{
+                            text: 'Save',
+                            handler: function () {
+                                var form = this.up('form').getForm();
+                                if (form.isValid()) {
+                                    form.submit({
+                                        url: 'POST.ashx?t=savepage',
+                                        success: function (fp, o) {
+                                            pagewin.hide();
+                                            pagegrid.getStore().reload();
+                                        }
+                                    });
+                                }
+                            }
+                        }, {
+                            text: 'Reset',
+                            handler: function () {
+                                this.up('form').getForm().reset();
+                            }
+                        }]
+                    }]
+                });
+                var contentwin = Ext.create('widget.window', {
+                    title: 'Enter Details',
+                    closable: true,
+                    closeAction: 'hide',
+                    frame: true,
+                    items: [{
+                        xtype: 'form',
+                        buttons: [{
+                            text: 'Reset',
+                            handler: function () {
+                                this.up('form').getForm().reset();
+                            }
+                        }, {
+                            text: 'Submit',
+                            formBind: true, //only enabled once the form is valid
+                            disabled: true,
+                            handler: function () {
+                                var form = this.up('form').getForm();
+                                if (form.isValid()) {
+                                    form.submit({
+                                        url: 'POST.ashx?t=setcontent',
+                                        success: function (form, action) {
+                                            contentwin.hide();
+                                            contentgrid.getStore().reload();
+                                        },
+                                        failure: function (form, action) {
+                                        }
+                                    });
+                                }
+                            }
+                        }, {
+                            text: 'Delete',
+                            formBind: true, //only enabled once the form is valid
+                            disabled: true,
+                            handler: function () {
+                                var form = this.up('form').getForm();
+                                if (form.isValid()) {
+                                    form.submit({
+                                        url: 'POST.ashx?t=delcontent',
+                                        success: function (form, action) {
+                                            contentwin.hide();
+                                            contentgrid.getStore().reload();
+                                        },
+                                        failure: function (form, action) {
+
+                                        }
+                                    });
+                                }
+                            }
+                        }],
+                        items: [{
+                            xtype: 'hiddenfield',
+                            name: 'ID'
+                        }, {
+                            xtype: 'hiddenfield',
+                            id: 'PageID',
+                            allowBlank: false,
+                            name: 'PageID'
+                        }, {
+                            xtype: 'textfield',
+                            fieldLabel: 'Title',
+                            name: 'Title',
+                            allowBlank: false
+                        }, {
+                            xtype: 'textarea',
+                            fieldLabel: 'Text',
+                            name: 'Text',
+                            allowBlank: false
+                        }, {
+                            xtype: 'filefield',
+                            fieldLabel: 'ImageUrl',
+                            name: 'ImageUrl'
+                        }]
+                    }]
+                });
+                var pagegrid = Ext.create('Gridbase', {
+                    store: {
+                        xtype: 'app',
+                        model: 'Pagestoremodel',
+                        pageSize: 25,
+                        listeners: {
+                            load: function (store, records, successful, operation, opts) {
+
+                            }
+                        },
+                        proxy: {
+                            type: 'ajax',
+                            url: 'GET.ashx?t=getpages',
+                            reader: {
+                                idProperty: 'ID',
+                                type: 'json',
+                                root: 'res'
+                            },
+                            writer: {
+                                allowSingle: false,
+                                encode: true,
+                                writeAllFields: false,
+                                type: 'json',
+                                root: 'res'
+                            },
+                            listeners: {
+                                exception: function (proxy, response, operation, eOpts) { }
+                            }
+                        },
+                        autoLoad: true
+                    },
+                    tbar: [{
+                        text: 'Add',
+                        handler: function () {
+                            pagewin.down('form').getForm().reset();
+                            pagewin.show();
+                        }
+                    }],
+                    listeners: {
+                        selectionchange: function (model, records, eOpts) {
+                            var rec = records[0];
+                            if (rec) {
+                                Ext.getCmp('PageID').setValue(rec.getId());
+                                contentgrid.getStore().load({
+                                    scope: this,
+                                    params: {
+                                        id: rec.getId()
+                                    },
+                                    callback: function (records, operation, success) { }
+                                });
+                            }
+                        }
+                    },
+                    columns: [{
+                        text: 'Location',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        tpl: '<a href="{SubDomain}/{Location}.aspx" target="_blank" >{Location}</a>',
+                        dataIndex: 'Location'
+                    }, {
+                        text: 'Main Site Url',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        dataIndex: 'MainSite',
+                        tpl: '<a href="{MainSite}"  target="_blank" >{MainSite}</a>'
+                    }, {
+                        text: 'HeaderImage',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        tpl: '<a href="contentimages/{HeaderImage}" target="_blank" >{HeaderImage}</a>',
+                        dataIndex: 'HeaderImage'
+                    }, {
+                        text: 'FooterImage',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        tpl: '<a href="contentimages/{FooterImage}" target="_blank" >{FooterImage}</a>',
+                        dataIndex: 'FooterImage'
+                    }, {
+                        text: 'PageImage',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        tpl: '<a href="contentimages/{PageImage}" target="_blank" >{PageImage}</a>',
+                        dataIndex: 'PageImage'
+                    }, {
+                        text: 'HeaderText',
+                        flex: 2,
+                        dataIndex: 'HeaderText'
+                    }, {
+                        text: 'FooterText',
+                        flex: 2,
+                        dataIndex: 'FooterText'
+                    }, {
+                        text: 'Edit',
+                        flex: 1,
+                        menuDisabled: true,
+                        xtype: 'actioncolumn',
+                        tooltip: 'Edit',
+                        align: 'center',
+                        icon: 'client/img/edit_task.png',
+                        handler: function (grid, rowIndex, colIndex, actionItem, event, record, row) {
+                            pagewin.down('form')
+                                   .getForm()
+                                   .loadRecord(record);
+                            pagewin.show();
+                        }
+                    }]
+                });
+                var contentgrid = Ext.create('Gridbase', {
+                    store: {
+                        xtype: 'app',
+                        model: 'Contentstoremodel',
+                        pageSize: 25,
+                        listeners: {
+                            load: function (store, records, successful, operation, eOpts) {
+                            }
+                        },
+                        proxy: {
+                            type: 'ajax',
+                            url: 'GET.ashx?t=getcontent',
+                            reader: {
+                                idProperty: 'ID',
+                                type: 'json',
+                                root: 'res'
+                            },
+                            writer: {
+                                allowSingle: false,
+                                encode: true,
+                                writeAllFields: false,
+                                type: 'json',
+                                root: 'res'
+                            },
+                            listeners: {
+                                exception: function (proxy, response, operation, opts) {
+                                }
+                            }
+                        },
+                        autoLoad: false
+                    },
+                    tbar: [{
+                        text: 'Add',
+                        handler: function () {
+                            contentwin.show();
+                        }
+                    }],
+                    plugins: [{
+                        ptype: 'rowexpander',
+                        rowBodyTpl: '<p style="font-weight:bold;">Text:</p>{Text}'
+                    }],
+                    columns: [{
+                        text: 'Title',
+                        xtype: 'templatecolumn',
+                        flex: 2,
+                        tpl: '<a href="{SubDomain}/{Title}.aspx" target="_blank" >{Title}</a>',
+                        dataIndex: 'Title'
+                    }, {
+                        text: 'ImageUrl',
+                        xtype: 'templatecolumn',
+                        flex: 3,
+                        tpl: '<a href="contentimages/{ImageUrl}" target="_blank" >{ImageUrl}</a>',
+                        dataIndex: 'ImageUrl'
+                    }, {
+                        text: 'Edit',
+                        flex: 1,
+                        menuDisabled: true,
+                        xtype: 'actioncolumn',
+                        tooltip: 'Edit',
+                        align: 'center',
+                        icon: 'client/img/edit_task.png',
+                        handler: function (grid, rowIndex, colIndex, actionItem, event, record, row) {
+                            contentwin.down('form')
+                                   .getForm()
+                                   .loadRecord(record);
+                            contentwin.show();
+                        }
+                    }]
+                });
+                Ext.create('Ext.container.Viewport', {
+                    layout: 'border',
+                    items: [{
+                        region: 'center',
+                        tbar: [{
+                            text: 'Generate',
+                            handler: function () {
+                                var tmpl = Ext.getCmp('tmpl').getValue();
+                                if (tmpl)
+                                    Ext.Ajax.request({
+                                        url: 'POST.ashx?t=gencontent',
+                                        params: { tmpl: tmpl },
+                                        success: function (response, opts) {
+                                            Ext.Msg.alert('Status', 'Changes saved successfully');
+                                        },
+                                        failure: function (response, opts) {
+                                        }
+                                    });
+                            }
+                        }, {
+                            xtype: 'combo',
+                            id: 'client',
+                            displayField: 'Value',
+                            valueField: 'ID',
+                            queryMode: 'local',
+                            listeners: {
+                                change: function (f, newValue, oldValue, eOpts) {
+                                    SetCookie('client', newValue);
+                                    pagegrid.getStore().reload();
+                                    contentgrid.getStore().removeAll();
+                                }
+                            },
+                            store: {
+                                xtype: 'app',
+                                fields: [{
+                                    name: 'ID',
+                                    type: 'int'
+                                }, {
+                                    name: 'Value',
+                                    type: 'string'
+                                }],
+                                listeners: {
+                                    load: function (store, records, successful, operation, opts) {
+                                        var first = store.first();
+                                        if (first) {
+                                            Ext.getCmp('client').setValue(first.get('ID'));
+                                        }
+                                    }
+                                },
+                                proxy: {
+                                    type: 'ajax',
+                                    url: 'GET.ashx?t=getclients',
+                                    reader: {
+                                        idProperty: 'ID',
+                                        type: 'json',
+                                        root: 'res'
+                                    },
+                                    writer: {
+                                        allowSingle: false,
+                                        encode: true,
+                                        writeAllFields: false,
+                                        type: 'json',
+                                        root: 'res'
+                                    },
+                                    listeners: {
+                                        exception: function (proxy, response, operation, opts) {
+                                        }
+                                    }
+                                },
+                                autoLoad: true
+                            }
+                        }, {
+                            xtype: 'combo',
+                            id: 'tmpl',
+                            displayField: 'Value',
+                            valueField: 'ID',
+                            queryMode: 'local',
+                            store: {
+                                xtype: 'app',
+                                fields: [{
+                                    name: 'ID',
+                                    type: 'string'
+                                }, {
+                                    name: 'Value',
+                                    type: 'string'
+                                }],
+                                listeners: {
+                                    load: function (store, records, successful, operation, opts) {
+                                        var first = store.first();
+                                        if (first) {
+                                            Ext.getCmp('client').setValue(first.get('ID'));
+                                        }
+                                    }
+                                },
+                                proxy: {
+                                    type: 'ajax',
+                                    url: 'GET.ashx?t=gettemplates',
+                                    reader: {
+                                        idProperty: 'ID',
+                                        type: 'json',
+                                        root: 'res'
+                                    },
+                                    writer: {
+                                        allowSingle: false,
+                                        encode: true,
+                                        writeAllFields: false,
+                                        type: 'json',
+                                        root: 'res'
+                                    },
+                                    listeners: {
+                                        exception: function (proxy, response, operation, opts) {
+                                        }
+                                    }
+                                },
+                                autoLoad: true
+                            }
+                        }],
+                        autoScroll: true,
+                        items: [pagegrid, contentgrid]
+                    }]
+                });
+            }
+        };
+        Ext.onReady(function () {
+            if (Ext.Loader.getConfig('enabled')) {
+                Ext.Loader.require(Ext.Array.union(Admin.componentreq.misc), function () {
+                    Admin.launch.call(this);
+                }, this);
+            }
+            else {
+                Admin.launch.call(this);
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

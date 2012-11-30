@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainMasterPage.master.cs" Inherits="Job_MainMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>MedAppointment :: Get your doctor's appointment online</title>
+	 <link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+	  <link href="../fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="bg">
+    <form id="form1" runat="server">
+   
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+			 <!--wraper start -->
+      <div class="container">
+      <div class="wrapper">
+	   <div class="toptext"></div>
+	   <div class="header">
+	   <div class="logo"><img src="/images/medLogoNew.gif" alt="Med Appointment" width="485" height="57" title="Med Appointment" /></div>
+	   </div>
+	   <div class="menuBg"> 
+			<div class="mainMenu">
+				<ul class="nav">
+					<li><a href="#"></a></li><li><a href="Job_Home.aspx">Home</a></li>
+				</ul>
+			</div>
+            </div>
+		<div class="homebanner"><img src="/images/banner_home.jpg" alt="Med Appointment" title="Med Appointment" /></div>
+      <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    <div class="BottomPane">
+            <div class="BottomPaneBottomBg">
+            <h2>FAQ's</h2>           
+
+			<div>
+				<strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+					eget dolor. Aenean massa.</strong>
+				<br>
+				Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+				mus.
+				<br>
+				<strong>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+					massa quis enim.</strong>
+				<br>
+				Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+				rhoncus ut, imperdiet a, venenatis vitae, justo.
+			</div>
+
+            </div>
+            </div>
+		
+		 <!--footer start -->
+            <div class="footer">
+            <div class="copyrights">© 2011 Powered by <a href="#">Botcode</a>. All rights reserved</div>            
+            <div class="footerLink" style="display:none"><a href="#">Sign-in</a> <a href="#">About</a> <a href="#">News</a> <a href="#">Forum</a> <a href="#">FAQs</a> <a href="#">Site Map</a> <a href="#">Contact</a> <a href="#">Feedback</a></div>
+            <div class="clear"></div>
+            </div>
+            <!--footer end -->
+    </div>
+	</div>
+	<!--wraper end -->
+    </form>
+</body>
+</html>

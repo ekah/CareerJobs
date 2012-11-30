@@ -1,0 +1,25 @@
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||
+=>
+=>                   Typography.css
+=>             Contains all Typography Styles
+=>
+||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* START STANDARD STYLES */
+body {font-family: Arial, Verdana, Helvetica, sans-serif;font-size: 12px;color: #000;line-height: 18px;font-weight: normal; }
+
+/* makes IE and FF render text the same */
+H1, H2, H3, H4, H5, H6{padding: 5px 0px 10px 0;margin: 0px;}
+p{ line-height:15px; padding:0; margin:0;}
+
+H1, H2, H3, H4, H5, DT, H6{	font-family: Arial, Verdana, Helvetica, sans-serif;font-size: 12px;color: #000;line-height: 18px;font-weight: normal;}
+
+H1 {font-size: 22px;line-height: 22px;color: #006699;font-weight: bold;}
+H2 {font-size: 14px;line-height: 20px;color: #333;font-weight: bold;}
+H3 {font-size: 18px;line-height: 18px;color: #000;font-weight: bold;}
+H4 {font-size: 14px;line-height: 16px;color: #fff;font-weight: bold;}
+H5 {font-size: 14px;line-height: 16px;color: #000;font-weight: bold;}
+H6 {font-size: 12px;line-height: 14px;color: #000;font-weight: bold;}
+DT {color: #000;}
+
+
+
