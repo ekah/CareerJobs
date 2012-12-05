@@ -145,13 +145,13 @@
                                                                                 ErrorMessage="Please select city" InitialValue="--Select--" Display="Dynamic" SetFocusOnError="true" />
                                                                         </EditItemTemplate>
                                                                     </telerik:GridTemplateColumn>
-                                                                    <telerik:GridTemplateColumn HeaderText="Speciality" SortExpression="speciality" UniqueName="speciality"
+                                                                    <telerik:GridTemplateColumn HeaderText="Speciality" SortExpression="Speciality" UniqueName="Speciality"
                                                                         ItemStyle-Width="75px" ItemStyle-Height="30px">
                                                                         <ItemTemplate>
-                                                                            <asp:Label runat="server" ID="lbspeciality" Text='<%# Eval("speciality") %>'></asp:Label>
+                                                                            <asp:Label runat="server" ID="lbspeciality" Text='<%# Eval("Speciality") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                         <EditItemTemplate>
-                                                                            <telerik:RadComboBox ID="rcbspeciality" DataTextField="speciality" DataValueField="speciality"
+                                                                            <telerik:RadComboBox ID="rcbspeciality" DataTextField="speciality" DataValueField="Speciality"
                                                                                 runat="server" Width="250px" />
                                                                             <asp:RequiredFieldValidator ID="rfvSpeciality" runat="server" ControlToValidate="rcbspeciality"
                                                                                 ErrorMessage="Please select speciality" InitialValue="--Select--" Display="Dynamic" SetFocusOnError="true" />

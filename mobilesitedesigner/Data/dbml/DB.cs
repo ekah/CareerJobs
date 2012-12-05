@@ -2641,6 +2641,13 @@ namespace mobilesitedesigner.Data.dbml
 			return ((ISingleResult<USP_Job_SelectCandidateDetailsByAidClientIdResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_Job_SelectClient")]
+		public ISingleResult<USP_Job_SelectClientResult> USP_Job_SelectClient()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<USP_Job_SelectClientResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USP_Job_SelectFacility")]
 		public ISingleResult<USP_Job_SelectFacilityResult> USP_Job_SelectFacility()
 		{
@@ -3773,6 +3780,8 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _ClientID;
 		
+		private System.Nullable<bool> _Locked;
+		
 		private EntityRef<Page> _Page;
 		
     #region Extensibility Method Definitions
@@ -3791,6 +3800,8 @@ namespace mobilesitedesigner.Data.dbml
     partial void OnPageIDChanged();
     partial void OnClientIDChanging(System.Nullable<int> value);
     partial void OnClientIDChanged();
+    partial void OnLockedChanging(System.Nullable<bool> value);
+    partial void OnLockedChanged();
     #endregion
 		
 		public Content()
@@ -3928,6 +3939,27 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Locked", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<bool> Locked
+		{
+			get
+			{
+				return this._Locked;
+			}
+			set
+			{
+				if ((this._Locked != value))
+				{
+					this.OnLockedChanging(value);
+					this.SendPropertyChanging();
+					this._Locked = value;
+					this.SendPropertyChanged("Locked");
+					this.OnLockedChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FK_Content_Page", Storage="_Page", ThisKey="PageID", OtherKey="ID", IsForeignKey=true)]
 		public Page Page
 		{
@@ -4021,6 +4053,12 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _ClientID;
 		
+		private System.Nullable<bool> _Def;
+		
+		private string _Text;
+		
+		private System.Nullable<bool> _Locked;
+		
 		private EntitySet<Content> _Content;
 		
 		private bool serializing;
@@ -4047,6 +4085,12 @@ namespace mobilesitedesigner.Data.dbml
     partial void OnMainSiteChanged();
     partial void OnClientIDChanging(System.Nullable<int> value);
     partial void OnClientIDChanged();
+    partial void OnDefChanging(System.Nullable<bool> value);
+    partial void OnDefChanged();
+    partial void OnTextChanging(string value);
+    partial void OnTextChanged();
+    partial void OnLockedChanging(System.Nullable<bool> value);
+    partial void OnLockedChanged();
     #endregion
 		
 		public Page()
@@ -4243,8 +4287,71 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Def", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public System.Nullable<bool> Def
+		{
+			get
+			{
+				return this._Def;
+			}
+			set
+			{
+				if ((this._Def != value))
+				{
+					this.OnDefChanging(value);
+					this.SendPropertyChanging();
+					this._Def = value;
+					this.SendPropertyChanged("Def");
+					this.OnDefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public string Text
+		{
+			get
+			{
+				return this._Text;
+			}
+			set
+			{
+				if ((this._Text != value))
+				{
+					this.OnTextChanging(value);
+					this.SendPropertyChanging();
+					this._Text = value;
+					this.SendPropertyChanged("Text");
+					this.OnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Locked", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public System.Nullable<bool> Locked
+		{
+			get
+			{
+				return this._Locked;
+			}
+			set
+			{
+				if ((this._Locked != value))
+				{
+					this.OnLockedChanging(value);
+					this.SendPropertyChanging();
+					this._Locked = value;
+					this.SendPropertyChanged("Locked");
+					this.OnLockedChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FK_Content_Page", Storage="_Content", ThisKey="ID", OtherKey="PageID", DeleteRule="NO ACTION")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13, EmitDefaultValue=false)]
 		public EntitySet<Content> Content
 		{
 			get
@@ -11140,7 +11247,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -11675,9 +11782,13 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Speciality;
 		
+		private System.Nullable<int> _Department;
+		
 		private System.Nullable<int> _Location;
 		
 		private string _Description;
+		
+		private string _URL;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -11690,6 +11801,8 @@ namespace mobilesitedesigner.Data.dbml
 		private string _WhoCreated;
 		
 		private string _WhoUpdated;
+		
+		private string _ExtractedInLatestrun;
 		
 		public TBL_Job_Jobs()
 		{
@@ -11780,8 +11893,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> Location
 		{
 			get
@@ -11798,7 +11928,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string Description
 		{
 			get
@@ -11814,8 +11944,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -11832,7 +11979,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -11849,7 +11996,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -11866,7 +12013,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -11883,7 +12030,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -11900,7 +12047,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -11915,6 +12062,23 @@ namespace mobilesitedesigner.Data.dbml
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="extractedInLatestrun", Storage="_ExtractedInLatestrun", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string ExtractedInLatestrun
+		{
+			get
+			{
+				return this._ExtractedInLatestrun;
+			}
+			set
+			{
+				if ((this._ExtractedInLatestrun != value))
+				{
+					this._ExtractedInLatestrun = value;
+				}
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_Job_Location")]
@@ -11923,6 +12087,16 @@ namespace mobilesitedesigner.Data.dbml
 	{
 		
 		private int _Lid;
+		
+		private string _Country;
+		
+		private string _State;
+		
+		private string _City;
+		
+		private string _CountryCode;
+		
+		private string _StateCode;
 		
 		private System.Nullable<int> _CountryId;
 		
@@ -11963,8 +12137,93 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(4000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this._Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this._State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(120)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCode", DbType="NVarChar(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string CountryCode
+		{
+			get
+			{
+				return this._CountryCode;
+			}
+			set
+			{
+				if ((this._CountryCode != value))
+				{
+					this._CountryCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateCode", DbType="NVarChar(6)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string StateCode
+		{
+			get
+			{
+				return this._StateCode;
+			}
+			set
+			{
+				if ((this._StateCode != value))
+				{
+					this._StateCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> CountryId
 		{
 			get
@@ -11981,7 +12240,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public System.Nullable<int> StateId
 		{
 			get
@@ -11998,7 +12257,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public System.Nullable<int> CityId
 		{
 			get
@@ -12015,7 +12274,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -12032,7 +12291,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -12049,7 +12308,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -12066,7 +12325,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -12083,7 +12342,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -12100,7 +12359,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -12964,6 +13223,8 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _SpecialityId;
 		
+		private string _Speciality;
+		
 		private System.Nullable<bool> _Visibility;
 		
 		private System.Nullable<int> _ClientId;
@@ -13014,8 +13275,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string Speciality
+		{
+			get
+			{
+				return this._Speciality;
+			}
+			set
+			{
+				if ((this._Speciality != value))
+				{
+					this._Speciality = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -13032,7 +13310,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -13049,7 +13327,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -13066,7 +13344,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -13083,7 +13361,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string WhoCreated
 		{
 			get
@@ -13100,7 +13378,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public string WhoUpdated
 		{
 			get
@@ -24819,17 +25097,17 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private string _JobTitle;
 		
-		private int _CityId;
+		private System.Nullable<int> _CityId;
 		
 		private string _CityName;
 		
-		private int _StateId;
+		private System.Nullable<int> _StateId;
 		
 		private string _StateName;
 		
 		private string _StateCode;
 		
-		private int _CountryId;
+		private System.Nullable<int> _CountryId;
 		
 		private string _CountryCode;
 		
@@ -24841,19 +25119,17 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _ClientId;
 		
-		private string _Facility;
-		
-		private int _FacId;
-		
 		private System.Nullable<int> _SpecialityId;
-		
-		private string _DepartmentName;
-		
-		private System.Nullable<int> _Speciality;
 		
 		private System.Nullable<System.DateTime> _CreatedDate;
 		
 		private string _Description;
+		
+		private string _Speciality;
+		
+		private System.Nullable<int> _FacId;
+		
+		private string _Facility;
 		
 		public VW_Jobs()
 		{
@@ -24876,9 +25152,9 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityId", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityId", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int CityId
+		public System.Nullable<int> CityId
 		{
 			get
 			{
@@ -24910,9 +25186,9 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateId", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateId", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public int StateId
+		public System.Nullable<int> StateId
 		{
 			get
 			{
@@ -24961,9 +25237,9 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public int CountryId
+		public System.Nullable<int> CountryId
 		{
 			get
 			{
@@ -24978,7 +25254,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCode", DbType="NVarChar(2) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCode", DbType="NVarChar(2)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string CountryCode
 		{
@@ -25063,42 +25339,8 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public string Facility
-		{
-			get
-			{
-				return this._Facility;
-			}
-			set
-			{
-				if ((this._Facility != value))
-				{
-					this._Facility = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacId", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public int FacId
-		{
-			get
-			{
-				return this._FacId;
-			}
-			set
-			{
-				if ((this._FacId != value))
-				{
-					this._FacId = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecialityId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<int> SpecialityId
 		{
 			get
@@ -25114,42 +25356,8 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepartmentName", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
-		public string DepartmentName
-		{
-			get
-			{
-				return this._DepartmentName;
-			}
-			set
-			{
-				if ((this._DepartmentName != value))
-				{
-					this._DepartmentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
-		public System.Nullable<int> Speciality
-		{
-			get
-			{
-				return this._Speciality;
-			}
-			set
-			{
-				if ((this._Speciality != value))
-				{
-					this._Speciality = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -25166,7 +25374,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string Description
 		{
 			get
@@ -25178,6 +25386,57 @@ namespace mobilesitedesigner.Data.dbml
 				if ((this._Description != value))
 				{
 					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string Speciality
+		{
+			get
+			{
+				return this._Speciality;
+			}
+			set
+			{
+				if ((this._Speciality != value))
+				{
+					this._Speciality = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+		public System.Nullable<int> FacId
+		{
+			get
+			{
+				return this._FacId;
+			}
+			set
+			{
+				if ((this._FacId != value))
+				{
+					this._FacId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		public string Facility
+		{
+			get
+			{
+				return this._Facility;
+			}
+			set
+			{
+				if ((this._Facility != value))
+				{
+					this._Facility = value;
 				}
 			}
 		}
@@ -39101,7 +39360,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -39250,7 +39509,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -39309,7 +39568,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -39470,7 +39729,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -39604,9 +39863,13 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Speciality;
 		
+		private System.Nullable<int> _Department;
+		
 		private System.Nullable<int> _Location;
 		
 		private string _Description;
+		
+		private string _URL;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -39619,6 +39882,8 @@ namespace mobilesitedesigner.Data.dbml
 		private string _WhoCreated;
 		
 		private string _WhoUpdated;
+		
+		private string _ExtractedInLatestrun;
 		
 		public USP_Job_FindJobsAssociateWithFacilityResult()
 		{
@@ -39709,8 +39974,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> Location
 		{
 			get
@@ -39727,7 +40009,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string Description
 		{
 			get
@@ -39743,8 +40025,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -39761,7 +40060,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -39778,7 +40077,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -39795,7 +40094,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -39812,7 +40111,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -39829,7 +40128,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -39841,6 +40140,23 @@ namespace mobilesitedesigner.Data.dbml
 				if ((this._WhoUpdated != value))
 				{
 					this._WhoUpdated = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="extractedInLatestrun", Storage="_ExtractedInLatestrun", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string ExtractedInLatestrun
+		{
+			get
+			{
+				return this._ExtractedInLatestrun;
+			}
+			set
+			{
+				if ((this._ExtractedInLatestrun != value))
+				{
+					this._ExtractedInLatestrun = value;
 				}
 			}
 		}
@@ -39860,9 +40176,13 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Speciality;
 		
+		private System.Nullable<int> _Department;
+		
 		private System.Nullable<int> _Location;
 		
 		private string _Description;
+		
+		private string _URL;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -39875,6 +40195,8 @@ namespace mobilesitedesigner.Data.dbml
 		private string _WhoCreated;
 		
 		private string _WhoUpdated;
+		
+		private string _ExtractedInLatestrun;
 		
 		public USP_Job_FindJobsAssociateWithLocationResult()
 		{
@@ -39965,8 +40287,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> Location
 		{
 			get
@@ -39983,7 +40322,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string Description
 		{
 			get
@@ -39999,8 +40338,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -40017,7 +40373,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -40034,7 +40390,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -40051,7 +40407,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -40068,7 +40424,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -40085,7 +40441,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -40097,6 +40453,23 @@ namespace mobilesitedesigner.Data.dbml
 				if ((this._WhoUpdated != value))
 				{
 					this._WhoUpdated = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="extractedInLatestrun", Storage="_ExtractedInLatestrun", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string ExtractedInLatestrun
+		{
+			get
+			{
+				return this._ExtractedInLatestrun;
+			}
+			set
+			{
+				if ((this._ExtractedInLatestrun != value))
+				{
+					this._ExtractedInLatestrun = value;
 				}
 			}
 		}
@@ -40116,9 +40489,13 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Speciality;
 		
+		private System.Nullable<int> _Department;
+		
 		private System.Nullable<int> _Location;
 		
 		private string _Description;
+		
+		private string _URL;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -40131,6 +40508,8 @@ namespace mobilesitedesigner.Data.dbml
 		private string _WhoCreated;
 		
 		private string _WhoUpdated;
+		
+		private string _ExtractedInLatestrun;
 		
 		public USP_Job_FindJobsAssociateWithSpecialityResult()
 		{
@@ -40221,8 +40600,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> Location
 		{
 			get
@@ -40239,7 +40635,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string Description
 		{
 			get
@@ -40255,8 +40651,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -40273,7 +40686,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -40290,7 +40703,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -40307,7 +40720,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -40324,7 +40737,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -40341,7 +40754,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -40353,6 +40766,23 @@ namespace mobilesitedesigner.Data.dbml
 				if ((this._WhoUpdated != value))
 				{
 					this._WhoUpdated = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="extractedInLatestrun", Storage="_ExtractedInLatestrun", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string ExtractedInLatestrun
+		{
+			get
+			{
+				return this._ExtractedInLatestrun;
+			}
+			set
+			{
+				if ((this._ExtractedInLatestrun != value))
+				{
+					this._ExtractedInLatestrun = value;
 				}
 			}
 		}
@@ -41889,6 +42319,16 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Lid;
 		
+		private string _Country;
+		
+		private string _State;
+		
+		private string _City;
+		
+		private string _CountryCode;
+		
+		private string _StateCode;
+		
 		private System.Nullable<int> _CountryId;
 		
 		private System.Nullable<int> _StateId;
@@ -41928,8 +42368,93 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(4000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this._Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this._State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(120)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCode", DbType="NVarChar(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string CountryCode
+		{
+			get
+			{
+				return this._CountryCode;
+			}
+			set
+			{
+				if ((this._CountryCode != value))
+				{
+					this._CountryCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateCode", DbType="NVarChar(6)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string StateCode
+		{
+			get
+			{
+				return this._StateCode;
+			}
+			set
+			{
+				if ((this._StateCode != value))
+				{
+					this._StateCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> CountryId
 		{
 			get
@@ -41946,7 +42471,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public System.Nullable<int> StateId
 		{
 			get
@@ -41963,7 +42488,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public System.Nullable<int> CityId
 		{
 			get
@@ -41980,7 +42505,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -41997,7 +42522,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -42014,7 +42539,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -42031,7 +42556,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -42048,7 +42573,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -42065,7 +42590,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -42087,6 +42612,16 @@ namespace mobilesitedesigner.Data.dbml
 	{
 		
 		private System.Nullable<int> _Lid;
+		
+		private string _Country;
+		
+		private string _State;
+		
+		private string _City;
+		
+		private string _CountryCode;
+		
+		private string _StateCode;
 		
 		private System.Nullable<int> _CountryId;
 		
@@ -42127,8 +42662,93 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(4000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this._Country = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this._State = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(120)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCode", DbType="NVarChar(2)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string CountryCode
+		{
+			get
+			{
+				return this._CountryCode;
+			}
+			set
+			{
+				if ((this._CountryCode != value))
+				{
+					this._CountryCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateCode", DbType="NVarChar(6)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string StateCode
+		{
+			get
+			{
+				return this._StateCode;
+			}
+			set
+			{
+				if ((this._StateCode != value))
+				{
+					this._StateCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryId", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> CountryId
 		{
 			get
@@ -42145,7 +42765,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public System.Nullable<int> StateId
 		{
 			get
@@ -42162,7 +42782,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public System.Nullable<int> CityId
 		{
 			get
@@ -42179,7 +42799,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -42196,7 +42816,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -42213,7 +42833,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -42230,7 +42850,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -42247,7 +42867,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -42264,7 +42884,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -44711,6 +45331,72 @@ namespace mobilesitedesigner.Data.dbml
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class USP_Job_SelectClientResult
+	{
+		
+		private System.Nullable<int> _ClientID;
+		
+		private string _Client;
+		
+		private string _SubDomain;
+		
+		public USP_Job_SelectClientResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public System.Nullable<int> ClientID
+		{
+			get
+			{
+				return this._ClientID;
+			}
+			set
+			{
+				if ((this._ClientID != value))
+				{
+					this._ClientID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Client", DbType="NVarChar(1000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Client
+		{
+			get
+			{
+				return this._Client;
+			}
+			set
+			{
+				if ((this._Client != value))
+				{
+					this._Client = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubDomain", DbType="NVarChar(250)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string SubDomain
+		{
+			get
+			{
+				return this._SubDomain;
+			}
+			set
+			{
+				if ((this._SubDomain != value))
+				{
+					this._SubDomain = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class USP_Job_SelectFacilityResult
 	{
 		
@@ -44755,7 +45441,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Facility
 		{
@@ -45029,7 +45715,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public string Facility
 		{
@@ -45063,7 +45749,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public string Speciality
 		{
@@ -45301,7 +45987,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Client", DbType="NVarChar(1683)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Client", DbType="NVarChar(1063)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
 		public string Client
 		{
@@ -45350,9 +46036,13 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _Speciality;
 		
+		private System.Nullable<int> _Department;
+		
 		private System.Nullable<int> _Location;
 		
 		private string _Description;
+		
+		private string _URL;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -45365,6 +46055,8 @@ namespace mobilesitedesigner.Data.dbml
 		private string _WhoCreated;
 		
 		private string _WhoUpdated;
+		
+		private string _ExtractedInLatestrun;
 		
 		public USP_Job_SelectJobByJobIdResult()
 		{
@@ -45455,8 +46147,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.Nullable<int> Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> Location
 		{
 			get
@@ -45473,7 +46182,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string Description
 		{
 			get
@@ -45489,8 +46198,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this._URL = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -45507,7 +46233,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -45524,7 +46250,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -45541,7 +46267,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -45558,7 +46284,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
 		public string WhoCreated
 		{
 			get
@@ -45575,7 +46301,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string WhoUpdated
 		{
 			get
@@ -45587,6 +46313,23 @@ namespace mobilesitedesigner.Data.dbml
 				if ((this._WhoUpdated != value))
 				{
 					this._WhoUpdated = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="extractedInLatestrun", Storage="_ExtractedInLatestrun", DbType="NVarChar(4000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string ExtractedInLatestrun
+		{
+			get
+			{
+				return this._ExtractedInLatestrun;
+			}
+			set
+			{
+				if ((this._ExtractedInLatestrun != value))
+				{
+					this._ExtractedInLatestrun = value;
 				}
 			}
 		}
@@ -45708,7 +46451,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public string Facility
 		{
@@ -46830,7 +47573,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public string Speciality
 		{
@@ -47102,7 +47845,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Facility", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public string Facility
 		{
@@ -47632,7 +48375,7 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public string Speciality
 		{
@@ -47940,6 +48683,8 @@ namespace mobilesitedesigner.Data.dbml
 		
 		private System.Nullable<int> _SpecialityId;
 		
+		private string _Speciality;
+		
 		private System.Nullable<bool> _Visibility;
 		
 		private System.Nullable<int> _ClientId;
@@ -47990,8 +48735,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string Speciality
+		{
+			get
+			{
+				return this._Speciality;
+			}
+			set
+			{
+				if ((this._Speciality != value))
+				{
+					this._Speciality = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -48008,7 +48770,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -48025,7 +48787,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -48042,7 +48804,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -48059,7 +48821,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string WhoCreated
 		{
 			get
@@ -48076,7 +48838,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public string WhoUpdated
 		{
 			get
@@ -48100,6 +48862,8 @@ namespace mobilesitedesigner.Data.dbml
 		private System.Nullable<int> _SpcId;
 		
 		private System.Nullable<int> _SpecialityId;
+		
+		private string _Speciality;
 		
 		private System.Nullable<bool> _Visibility;
 		
@@ -48151,8 +48915,25 @@ namespace mobilesitedesigner.Data.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speciality", DbType="VarChar(1000)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string Speciality
+		{
+			get
+			{
+				return this._Speciality;
+			}
+			set
+			{
+				if ((this._Speciality != value))
+				{
+					this._Speciality = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visibility", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public System.Nullable<bool> Visibility
 		{
 			get
@@ -48169,7 +48950,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientId", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public System.Nullable<int> ClientId
 		{
 			get
@@ -48186,7 +48967,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
 		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
@@ -48203,7 +48984,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedDate", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<System.DateTime> UpdatedDate
 		{
 			get
@@ -48220,7 +49001,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoCreated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public string WhoCreated
 		{
 			get
@@ -48237,7 +49018,7 @@ namespace mobilesitedesigner.Data.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoUpdated", DbType="NVarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public string WhoUpdated
 		{
 			get

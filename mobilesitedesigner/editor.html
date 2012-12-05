@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Code Syntax Highlight Editor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="swfobject.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="client/lib/jeresig-jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script type="text/javascript" language="javascript">
+        function loadContent() {
+            $.get('GET.ashx', { file: qs["file"], t: 'getcode' }, function (dt) {
+                var o = $('#ctlFlash')[0];
+                o.setParser('aspx');
+                o.setText(dt);
+            }, 'text');
+        }
+        function getQueryString() {
+            var result = {}, queryString = location.search.substring(1),
+                re = /([^&=]+)=([^&]*)/g, m;
+
+            while (m = re.exec(queryString)) {
+                result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+
+            return result;
+        }
+        var qs = getQueryString();
+        $(function () {
+            var flashvars = {
+                // indicate the parser, aspx / csharp / javascript / css / vbscript / html / xml / php / phpcode
+                parser: "aspx",
+
+                // set the editor to read-only mode
+                readOnly: false,
+
+                // the editor detects client installed fonts and use preferred fonts if installed.
+                // NOTE: the charactor '|' is required at the begin and end of the list
+                preferredFonts: "|Consolas|Courier New|Courier|Arial|Tahoma|",
+
+                // indicate the callback function so that we can load the content into editor once it is initialized.
+                onload: loadContent
+            };
+          
+            // flash player parameters, you can find more information at: http://code.google.com/p/swfobject/wiki/documentation
+            var params = { menu: "false",   allowscriptaccess: "always" };
+
+            // define the id of the flash control, we need the id in javascript interaction 
+            var attributes = { id: "ctlFlash", name: "ctlFlash" };
+
+            // embed the flash with size, more information can be found at: http://code.google.com/p/swfobject/wiki/documentation
+            swfobject.embedSWF("CodeHighlightEditor.swf?now=" + (new Date()).getTime(), "flashContent", ($(window).width()).toString(), ($(window).height()).toString(), "10.0.0", "expressInstall.swf", flashvars, params, attributes);
+            $(document).bind('keydown', 'Ctrl+s', function (evt) {
+                $.post('POST.ashx', { file: qs["file"], t: 'setcode', content: ($('#ctlFlash')[0]).getText() }, function (dt) {
+                    alert('saved');
+                }, 'text');
+            });
+        });
+    </script>
+</head>
+<body id="flashContent" style="width:100%;height:100%;" >  
+   
+
+</body>
+</html>

@@ -11,6 +11,9 @@
         name: 'MainSite',
         type: 'string'
     }, {
+        name: 'Text',
+        type: 'string'
+    }, {
         name: 'SubDomain',
         type: 'string'
     }, {
@@ -31,5 +34,11 @@
     }, {
         name: 'FooterText',
         type: 'string'
+    }, {
+        name: 'Def',
+        type: 'bool'
+    }, {
+        name: 'Locked',
+        type: 'bool'
     }]
 });

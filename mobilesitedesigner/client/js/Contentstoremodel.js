@@ -22,5 +22,8 @@
     }, {
         name: 'Text',
         type: 'string'
+    }, {
+        name: 'Locked',
+        type: 'bool'
     }]
 });

@@ -77,6 +77,11 @@
                             name: 'HeaderText',
                             fieldLabel: 'Header Text'
                         }, {
+                            xtype: 'textarea',
+                            fieldLabel: 'Text',
+                            name: 'Text',
+                            allowBlank: false
+                        }, {
                             xtype: 'filefield',
                             emptyText: 'Select an image',
                             fieldLabel: 'Page Image',
@@ -98,6 +103,14 @@
                             fieldLabel: 'Footer Image',
                             name: 'FooterImage',
                             buttonText: 'Browse...'
+                        }, {
+                            xtype: 'checkboxfield',
+                            fieldLabel: 'Default',
+                            name: 'Def'
+                        }, {
+                            xtype: 'checkboxfield',
+                            fieldLabel: 'Locked',
+                            name: 'Locked'
                         }],
                         buttons: [{
                             text: 'Save',
@@ -173,6 +186,7 @@
                         }],
                         items: [{
                             xtype: 'hiddenfield',
+                            id: 'ContentID',
                             name: 'ID'
                         }, {
                             xtype: 'hiddenfield',
@@ -193,6 +207,10 @@
                             xtype: 'filefield',
                             fieldLabel: 'ImageUrl',
                             name: 'ImageUrl'
+                        }, {
+                            xtype: 'checkboxfield',
+                            fieldLabel: 'Locked',
+                            name: 'Locked'
                         }]
                     }]
                 });
@@ -249,13 +267,17 @@
                             }
                         }
                     },
+                    plugins: [{
+                        ptype: 'rowexpander',
+                        rowBodyTpl: '<p style="font-weight:bold;">Text:</p>{Text}'
+                    }],
                     columns: [{
                         text: 'Location',
                         xtype: 'templatecolumn',
                         flex: 2,
-                        tpl: '<a href="{SubDomain}/{Location}.aspx" target="_blank" >{Location}</a>',
+                        tpl: '<a href="{SubDomain}/{Location}.aspx" target="_blank" >{Location}</a><a href="editor.html?file={SubDomain}/{Location}.aspx" target="_blank" > (Open in editor) </a>',
                         dataIndex: 'Location'
-                    }, {
+                    },  {
                         text: 'Main Site Url',
                         xtype: 'templatecolumn',
                         flex: 2,
@@ -288,6 +310,14 @@
                         flex: 2,
                         dataIndex: 'FooterText'
                     }, {
+                        text: 'Default',
+                        flex: 2,
+                        dataIndex: 'Def'
+                    }, {
+                        text: 'Locked',
+                        flex: 2,
+                        dataIndex: 'Locked'
+                    }, {
                         text: 'Edit',
                         flex: 1,
                         menuDisabled: true,
@@ -300,6 +330,19 @@
                                    .getForm()
                                    .loadRecord(record);
                             pagewin.show();
+                        }
+                    }, {
+                        text: 'Delete',
+                        flex: 1,
+                        menuDisabled: true,
+                        xtype: 'actioncolumn',
+                        tooltip: 'Edit',
+                        align: 'center',
+                        icon: 'client/img/delete.gif',
+                        handler: function (grid, rowIndex, colIndex, actionItem, event, record, row) {
+                            $.post('POST.ashx', { t: 'deletepage', id: record.getId() }, function () {
+                                grid.getStore().reload();
+                            });                           
                         }
                     }]
                 });
@@ -337,6 +380,7 @@
                     tbar: [{
                         text: 'Add',
                         handler: function () {
+                            Ext.getCmp('ContentID').setValue(null);
                             contentwin.show();
                         }
                     }],
@@ -348,7 +392,7 @@
                         text: 'Title',
                         xtype: 'templatecolumn',
                         flex: 2,
-                        tpl: '<a href="{SubDomain}/{Title}.aspx" target="_blank" >{Title}</a>',
+                        tpl: '<a href="{SubDomain}/{Title}.aspx" target="_blank" >{Title}</a><a href="editor.html?file={SubDomain}/{Title}.aspx" target="_blank" > (Open in editor) </a>',
                         dataIndex: 'Title'
                     }, {
                         text: 'ImageUrl',
@@ -356,6 +400,10 @@
                         flex: 3,
                         tpl: '<a href="contentimages/{ImageUrl}" target="_blank" >{ImageUrl}</a>',
                         dataIndex: 'ImageUrl'
+                    }, {
+                        text: 'Locked',
+                        flex: 2,
+                        dataIndex: 'Locked'
                     }, {
                         text: 'Edit',
                         flex: 1,
@@ -366,8 +414,8 @@
                         icon: 'client/img/edit_task.png',
                         handler: function (grid, rowIndex, colIndex, actionItem, event, record, row) {
                             contentwin.down('form')
-                                   .getForm()
-                                   .loadRecord(record);
+                                    .getForm()
+                                    .loadRecord(record);
                             contentwin.show();
                         }
                     }]
@@ -462,7 +510,7 @@
                                     load: function (store, records, successful, operation, opts) {
                                         var first = store.first();
                                         if (first) {
-                                            Ext.getCmp('client').setValue(first.get('ID'));
+                                            Ext.getCmp('tmpl').setValue(first.get('ID'));
                                         }
                                     }
                                 },

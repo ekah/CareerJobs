@@ -58,8 +58,16 @@ namespace mobilesitedesigner
                 case "getdet":
                     GetDet(context);
                     break;
+                case "getcode":
+                    GetCode(context);
+                    break;
             }
             base.EndRequest(context);
+        }
+
+        private void GetCode(HttpContext context)
+        {
+            res.Write(File.ReadAllText(req.MapPath(q["file"])));
         }
 
         private void GetTemplates(HttpContext context)
@@ -119,7 +127,10 @@ namespace mobilesitedesigner
                                 o.HeaderText,
                                 o.HeaderImage,
                                 o.FooterImage,
-                                o.PageImage
+                                o.PageImage,
+                                o.Text,
+                                o.Def,
+                                o.Locked
                             };
                 context.Response.WriteJson(query);
             }
@@ -144,7 +155,8 @@ namespace mobilesitedesigner
                                     SubDomain = org.SubDomain,
                                     o.ImageUrl,
                                     o.Text,
-                                    o.Title
+                                    o.Title,
+                                    o.Locked
                                 };
                     context.Response.WriteJson(query);
                 }

@@ -220,6 +220,7 @@ public partial class Jobs_Job_HrSpeciality : System.Web.UI.Page
             PopulateMasterSpeciality(rcbSpeciality);
         }
 
+
         if (e.Item is GridDataItem)
         {
             GridDataItem dataitem = (GridDataItem)e.Item;
@@ -234,6 +235,7 @@ public partial class Jobs_Job_HrSpeciality : System.Web.UI.Page
             {
                 imgVisibility.ImageUrl = "../ImagesNew/Jobs/red_x_mark.png";
             }
+
         }
 
         if ((e.Item is GridEditableItem) && (e.Item.IsInEditMode) && (!e.Item.OwnerTableView.IsItemInserted))

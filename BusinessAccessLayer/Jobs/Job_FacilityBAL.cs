@@ -17,6 +17,10 @@ namespace MedAppointments.BusinessAccessLayer
         {
             return ObjFacilityDAL.SelectFacility();
         }
+        public DataSet SelectClient()
+        {
+            return ObjFacilityDAL.SelectClient();
+        }
         public DataSet FacilitySelectByClientID(int clientid)
         {
             return ObjFacilityDAL.FacilitySelectByClientID(clientid);

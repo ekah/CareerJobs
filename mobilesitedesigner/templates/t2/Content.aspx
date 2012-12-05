@@ -1,19 +1,26 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Content.aspx.cs" Inherits="mobilesitedesigner.Content" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="mobilesitedesigner.PageHandlerBase" %>
+<script runat="server">
+    public mobilesitedesigner.Data.dbml.Page _Page;
+    public mobilesitedesigner.Data.dbml.Content _Content;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        int id = int.Parse(Request.QueryString["id"]);
+        _Content = GetDataContext2.Content.Single(o => o.ID == id);
+        _Page = _Content.Page;
+    }
+</script>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <link href="../client/lib/jquery.mobile-1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" />
-    <link href="../client/lib/jquery.mobile-1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <link href="http://code.jquery.com/mobile/1.2.0/query.mobile-1.2.0.css" rel="stylesheet" />
+    <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $('#country,#state').change(function () {
                 $.mobile.loading('show');
-
                 var sel = $(this).attr('name');
                 if (sel == 'country')
                     $('#state,#city').empty();
@@ -21,8 +28,12 @@
                     $('#city').empty();
                 $.get('../GET.ashx', { t: 'getdet', dettype: sel, val: $(this).val() }, function (dt) {
                     var html = '';
+                    if (sel == 'country')
+                        html += '<option  value="" >Choose States</option>';
+                    if (sel == 'state')
+                        html += '<option  value="" >Choose Cities</option>';
                     $.each(dt, function (i) {
-                        html += '<option ' + (i == 0 ? 'selected="selected"' : '') + ' value="' + this.ID + '" >' + this.Value + '</option>';
+                        html += '<option value="' + this.ID + '" >' + this.Value + '</option>';
                     });
                     switch (sel) {
                         case 'country':
@@ -54,29 +65,28 @@
         </div>
         <!-- /header -->
         <% }  %>
-        <# 
-            int clientid = mobilesitedesigner.Common.GetClientID(Request.Path.Split('/')[2]);
-            string countryid=null, stateid=null;
-            var SearchCol = (from o in GetDataContext2.TBL_Job_SearchWidgetColVisible
-                             where o.ClientId == clientid
-                             select o).FirstOrDefault();
-              #>
-        <form action="JobSearch.aspx" method="get" data-ajax="false"  class="ui-body ui-body-a ui-corner-all">
-            <div data-role="collapsible" data-content-theme="c" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-                <h3>
-                    <input type="search" placeholder="Enter Search Keyword" name="search" id="search" /></h3>
+         <# 
+           int clientid = mobilesitedesigner.Common.GetClientID(Request.Path.Split('/')[2]);
+           string countryid=null, stateid=null;
+           var SearchCol = (from o in GetDataContext2.TBL_Job_SearchWidgetColVisible
+                            where o.ClientId == clientid
+                            select o).FirstOrDefault();
+            #>
+        <form action="JobSearch.aspx" method="get" data-ajax="false" class="ui-body ui-body-a ui-corner-all" id="sform">
+            <div data-role="collapsible" data-content-theme="c" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">               
+                <h3>                   
+                    <input type="search" placeholder="Enter Search Keyword" name="search" id="search"  /></h3>
                  <div data-role="fieldcontain">
-                  <# if (SearchCol != null)
+                 <#  if (SearchCol != null)
                               {   
-
                 if (SearchCol.Facility ?? false)
-
                         { #>
                
                   
                     <label for="facility" class="ui-select">Select Job Facility</label>
                     <select name="facility" id="facility">
-                        <#   var FacCols = (from o in GetDataContext2.TBL_Job_Facility
+                        <option value="" selected="selected">Choose Facilities</option>
+                        <#   var FacCols = (from o in GetDataContext2.TBL_Job_Facility                                            
                                             where o.ClientId == clientid
                                             select o).Distinct();
                              foreach (var FacCol in FacCols)
@@ -89,42 +99,41 @@
                        { #>
                     <label for="country" class="ui-select">Select Country</label>
                     <select name="country" id="country">
-                        <#   var CountryCols = (from o in GetDataContext2.TBL_GeoPostcodes_Country
+                        <option value="" selected="selected">Choose Countries</option>
+                        <#     var CountryCols = (from o in GetDataContext2.TBL_GeoPostcodes_Country
                                                 join o1 in GetDataContext2.TBL_Job_Location on o.CountryId equals o1.CountryId
-                                                where o1.ClientId == clientid
+                                                 where o1.ClientId == clientid
                                                 select o).Distinct();
                              countryid =CountryCols.Any()? CountryCols.First().CountryCode:null;
                              foreach (var CountryCol in CountryCols)
                              { #>
-                        <option value="<#=CountryCol.CountryCode #>" <#if (CountryCol.CountryCode == mobilesitedesigner.Common.DefaultCountryCode)
-                                                                       { #>
-                            selected="selected" <#} #>><#=CountryCol.CountryName  #></option>
+                        <option value="<#=CountryCol.CountryCode #>" ><#=CountryCol.CountryName  #></option>
                         <# }  #>
                     </select>
                     <# }  #>
                     <# if (SearchCol.State ?? false)
                        { #>
-                    <label for="state">Select State</label>
+                    <label for="state" >Select State</label>
                     <select name="state" id="state">
+                        <option value="" selected="selected">Choose States</option>
                         <#   var StateCols = (from o in GetDataContext2.TBL_GeoPostcodes_State
                                               join o1 in GetDataContext2.TBL_Job_Location on o.StateId equals o1.StateId
-                                              where o.CountryCode == (string.IsNullOrEmpty(countryid)?o.CountryCode:countryid) && o1.ClientId == clientid
+                                              where o.CountryCode == (string.IsNullOrEmpty(countryid)?o.CountryCode:countryid) && o1.ClientId==clientid
                                               select o).Distinct();
                              stateid = StateCols.Any()?StateCols.First().StateCode:null;
                              foreach (var StateCol in StateCols)
                              { #>
-                        <option value="<#=StateCol.StateCode  #>" <#if (StateCol.StateCode == mobilesitedesigner.Common.DefaultStateCode)
-                                                                    { #>
-                            selected="selected" <#} #>><#=StateCol.StateName #></option>
+                        <option value="<#=StateCol.StateCode  #>" ><#=StateCol.StateName #></option>
                         <# }  #>
                     </select>
                     <# }  #>
                     <# if (SearchCol.City ?? false)
                        { #>
-                    <label for="city">Select City</label>
+                    <label for="city" >Select City</label>
                     <select name="city" id="city">
+                        <option value="" selected="selected">Choose Cities</option>
                         <#   var CityCols = (from o in GetDataContext2.TBL_GeoPostcodes_City
-                                             join o1 in GetDataContext2.TBL_Job_Location on o.CityId equals o1.CityId
+                                             join o1 in GetDataContext2.TBL_Job_Location on o.CityId equals o1.CityId                                             
                                              where o.StateCode == (string.IsNullOrEmpty(stateid)?o.StateCode:stateid) && o1.ClientId == clientid
                                              select o).Distinct();
                              foreach (var CityCol in CityCols)
@@ -132,33 +141,37 @@
                         <option value="<#=CityCol.CityId  #>"><#=CityCol.CityName #></option>
                         <# }  #>
                     </select>
-                    <# }  #>
-                    
+                    <# } 
+                     } #>                                   
                 </div>
-                 <# }  #>
-                 <input type="hidden" value="<% =_Page.Location %>" name="page" />
-                <button type="submit" data-theme="b">Search</button>
+                 <input type="hidden"  value="<% =_Page.Location %>" name="page" />    
+                 <button type="submit" data-theme="b" >Search</button>
             </div>
         </form>
          <% if (_Content != null)
-           { %>
-         <div class="contentwrapper">
-            <!--Content-->
-            <div class="breadcrump"><%=_Page.HeaderText %>   >  <%=_Content.Title %>
-                <div class="back-btn"><a href="index.html">
-                    <img src="images/back-btn.png" width="62" height="26" /></a> </div>
+            { %>
+        <div data-role="content">
+            <%  if (!string.IsNullOrEmpty(_Content.Text))
+                {%>
+            <%  if (!string.IsNullOrEmpty(_Content.ImageUrl))
+                {%><img src="<%  =mobilesitedesigner.Common.ImagesRelPath+ _Content.ImageUrl %>" style="float: left;" /><% } %>
+            <p><%  =_Content.Text %> </p>
+            <% }
+           } if (_Page != null)
+            { %>
+            <div data-role="footer">
+                <%  if (!string.IsNullOrEmpty(_Page.HeaderImage))
+                    {%>
+                <img src="<% =mobilesitedesigner.Common.ImagesRelPath+ _Page.FooterImage   %>" style="width: 100%;" />
+                <% }  %>
+                <% else if (!string.IsNullOrEmpty(_Page.FooterText))
+                    {%>
+                <h1><% =_Page.FooterText  %></h1>
+                <% }  %>
             </div>
-            <h1 style="margin-left: 10px;"><%=_Content.Title %> </h1>
-            <ul class="menu">
-                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="star">Call Center</a> </li>
-                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="home">Marketing</a></li>
-                <li><a href="index.html" data-role="button" data-iconpos="right" data-icon="info">Non-Clinical</a></li>
-
-            </ul>         
-            <p style="padding: 10px;"><%=_Content.Text %></p>
+            <!-- /footer -->
+            <% }  %>
         </div>
-        <%} %>
-       
         </div>
 </body>
 </html>

@@ -22,14 +22,6 @@ namespace mobilesitedesigner
 			}
 		}
 	
-		public static int  JobsClientID
-		{
-			get
-			{
-				return    int.Parse(ConfigurationManager.AppSettings["JobsClientID"]);
-			}
-		}
-	
 		public static string  DefaultCountryCode
 		{
 			get
@@ -45,18 +37,19 @@ namespace mobilesitedesigner
 				return    ConfigurationManager.AppSettings["DefaultStateCode"];
 			}
 		}
+	
+		public static int  PageSize
+		{
+			get
+			{
+				return    int.Parse(ConfigurationManager.AppSettings["PageSize"]);
+			}
+		}
 		public static String DataConnectionString
 		{
 			get
 			{
 				return ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
-			}
-		}
-		public static String JobsDataConnectionString
-		{
-			get
-			{
-				return ConfigurationManager.ConnectionStrings["JobsDataConnectionString"].ConnectionString;
 			}
 		}
 	}

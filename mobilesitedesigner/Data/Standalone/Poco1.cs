@@ -24,18 +24,6 @@ public int ReferenceId { get;set; }
 public int? PatientId { get;set; }
 public int? OrganizationId { get;set; }
 public string ReferenceNumber { get;set; }
-}public class TBL_Job_Location {
-
-public int Lid { get;set; }
-public int? CountryId { get;set; }
-public int? StateId { get;set; }
-public int? CityId { get;set; }
-public bool? Visibility { get;set; }
-public int? ClientId { get;set; }
-public DateTime? CreatedDate { get;set; }
-public DateTime? UpdatedDate { get;set; }
-public string WhoCreated { get;set; }
-public string WhoUpdated { get;set; }
 }public class TBL_Master_Building {
 
 public int Id { get;set; }
@@ -456,16 +444,6 @@ public int CityId { get;set; }
 public string CityName { get;set; }
 public string StateCode { get;set; }
 public string CountryCode { get;set; }
-}public class TBL_Job_Speciality {
-
-public int SpcId { get;set; }
-public int? SpecialityId { get;set; }
-public bool? Visibility { get;set; }
-public int? ClientId { get;set; }
-public DateTime? CreatedDate { get;set; }
-public DateTime? UpdatedDate { get;set; }
-public string WhoCreated { get;set; }
-public string WhoUpdated { get;set; }
 }public class TBL_Landing_MainTab {
 
 public int MainTabId { get;set; }
@@ -583,21 +561,6 @@ public DateTime? ModifiedOn { get;set; }
 public bool? IsDeleted { get;set; }
 public int? ActionTypeId { get;set; }
 public int? ActionId { get;set; }
-}public class TBL_Job_Jobs {
-
-public int Jid { get;set; }
-public string JobId { get;set; }
-public string JobTitle { get;set; }
-public int? Facility { get;set; }
-public int? Speciality { get;set; }
-public int? Location { get;set; }
-public string Description { get;set; }
-public bool? Visibility { get;set; }
-public int? ClientId { get;set; }
-public DateTime? CreatedDate { get;set; }
-public DateTime? UpdatedDate { get;set; }
-public string WhoCreated { get;set; }
-public string WhoUpdated { get;set; }
 }public class TBL_Login {
 
 public int LoginId { get;set; }
@@ -706,22 +669,24 @@ public string Images { get;set; }
 public bool? Selected { get;set; }
 }public class VW_Jobs {
 
-public int CityId { get;set; }
-public int StateId { get;set; }
-public int CountryId { get;set; }
-public string CountryCode { get;set; }
 public int Jid { get;set; }
-public int FacId { get;set; }
-public int? SpecialityId { get;set; }
-public string DepartmentName { get;set; }
 public int? ClientId { get;set; }
+public int? SpecialityId { get;set; }
+public DateTime? CreatedDate { get;set; }
+public string Description { get;set; }
+public string Speciality { get;set; }
+public int? FacId { get;set; }
 public string Facility { get;set; }
 public string JobTitle { get;set; }
-public string CountryName { get;set; }
-public string JobId { get;set; }
+public int? CityId { get;set; }
+public string CityName { get;set; }
+public int? StateId { get;set; }
 public string StateName { get;set; }
 public string StateCode { get;set; }
-public string CityName { get;set; }
+public int? CountryId { get;set; }
+public string CountryCode { get;set; }
+public string CountryName { get;set; }
+public string JobId { get;set; }
 }public class TBL_Token {
 
 public int TokenId { get;set; }
@@ -741,6 +706,9 @@ public string FooterText { get;set; }
 public string PageImage { get;set; }
 public string MainSite { get;set; }
 public int? ClientID { get;set; }
+public bool? Def { get;set; }
+public string Text { get;set; }
+public bool? Locked { get;set; }
 }public class vw_Content {
 
 public int ID { get;set; }
@@ -767,6 +735,7 @@ public string ImageUrl { get;set; }
 public string Text { get;set; }
 public int? PageID { get;set; }
 public int? ClientID { get;set; }
+public bool? Locked { get;set; }
 }public class TBL_Landing {
 
 public int LandingId { get;set; }
@@ -808,10 +777,56 @@ public int? AccountId { get;set; }
 public int? AccountTypeId { get;set; }
 public int? BannerId { get;set; }
 public int? DefaultVersion { get;set; }
+}public class TBL_Job_Speciality {
+
+public int SpcId { get;set; }
+public int? SpecialityId { get;set; }
+public string Speciality { get;set; }
+public bool? Visibility { get;set; }
+public int? ClientId { get;set; }
+public DateTime? CreatedDate { get;set; }
+public DateTime? UpdatedDate { get;set; }
+public string WhoCreated { get;set; }
+public string WhoUpdated { get;set; }
+}public class TBL_Job_Location {
+
+public int Lid { get;set; }
+public string Country { get;set; }
+public string State { get;set; }
+public string City { get;set; }
+public string CountryCode { get;set; }
+public string StateCode { get;set; }
+public int? CountryId { get;set; }
+public int? StateId { get;set; }
+public int? CityId { get;set; }
+public bool? Visibility { get;set; }
+public int? ClientId { get;set; }
+public DateTime? CreatedDate { get;set; }
+public DateTime? UpdatedDate { get;set; }
+public string WhoCreated { get;set; }
+public string WhoUpdated { get;set; }
 }public class TBL_Admin_LoginType {
 
 public int LoginTypeId { get;set; }
 public string LoginType { get;set; }
+}public class TBL_Job_Jobs {
+
+public int Jid { get;set; }
+public string JobId { get;set; }
+public string JobTitle { get;set; }
+public int? Facility { get;set; }
+public int? Speciality { get;set; }
+public int? Department { get;set; }
+public int? Location { get;set; }
+public string Description { get;set; }
+public string URL { get;set; }
+public bool? Visibility { get;set; }
+public int? ClientId { get;set; }
+public DateTime? CreatedDate { get;set; }
+public DateTime? UpdatedDate { get;set; }
+public string WhoCreated { get;set; }
+public string WhoUpdated { get;set; }
+public string extractedInLatestrun { get;set; }
 }public class TBL_Doctor {
 
 public int DoctorId { get;set; }

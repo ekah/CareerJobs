@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="mobilesitedesigner.PageHandlerBase" %>
-
 <%@ Import Namespace="DapperExtensions" %>
 <%@ Import Namespace="Dapper" %>
 <script runat="server">
@@ -42,9 +41,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-    <link href="../../client/lib/jquery.mobile-1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" />
-    <link href="../../client/lib/jquery.mobile-1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
+    <title>Job Search</title>
+    <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" />
+    <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript">
@@ -58,8 +57,12 @@
                     $('#city').empty();
                 $.get('../GET.ashx', { t: 'getdet', dettype: sel, val: $(this).val() }, function (dt) {
                     var html = '';
+                    if (sel == 'country')
+                        html += '<option  value="" >Choose States</option>';
+                    if (sel == 'state')
+                        html += '<option  value="" >Choose Cities</option>';
                     $.each(dt, function (i) {
-                        html += '<option ' + (i == 0 ? 'selected="selected"' : '') + ' value="' + this.ID + '" >' + this.Value + '</option>';
+                        html += '<option value="' + this.ID + '" >' + this.Value + '</option>';
                     });
                     switch (sel) {
                         case 'country':
@@ -113,6 +116,7 @@
 
                     <label for="facility" class="ui-select">Select Job Facility</label>
                     <select name="facility" id="facility">
+                        <option value="" selected="selected">Choose Facilities</option>
                         <%   var FacCols = (from o in GetDataContext2.TBL_Job_Facility
                                             where o.ClientId == clientid
                                             select o).Distinct();
@@ -126,6 +130,7 @@
                        { %>
                     <label for="country" class="ui-select">Select Country</label>
                     <select name="country" id="country">
+                        <option value="" selected="selected">Choose Countries</option>
                         <%    var CountryCols = (from o in GetDataContext2.TBL_GeoPostcodes_Country
                                                  join o1 in GetDataContext2.TBL_Job_Location on o.CountryId equals o1.CountryId
                                                  where o1.ClientId == clientid
@@ -141,6 +146,7 @@
                        { %>
                     <label for="state">Select State</label>
                     <select name="state" id="state">
+                        <option value="" selected="selected">Choose States</option>
                         <%   var StateCols = (from o in GetDataContext2.TBL_GeoPostcodes_State
                                               join o1 in GetDataContext2.TBL_Job_Location on o.StateId equals o1.StateId
                                               where o.CountryCode == (string.IsNullOrEmpty(countryid) ? o.CountryCode : countryid) && o1.ClientId == clientid
@@ -156,19 +162,19 @@
                        { %>
                     <label for="city">Select City</label>
                     <select name="city" id="city">
+                        <option value="" selected="selected">Choose Cities</option>
                         <%   var CityCols = (from o in GetDataContext2.TBL_GeoPostcodes_City
                                              join o1 in GetDataContext2.TBL_Job_Location on o.CityId equals o1.CityId
                                              where o.StateCode == (string.IsNullOrEmpty(stateid) ? o.StateCode : stateid) && o1.ClientId == clientid
                                              select o).Distinct();
                              foreach (var CityCol in CityCols)
                              { %>
-                        <option value="<%=CityCol.CityId  %>"><%=CityCol.CityName %></option>
+                        <option value="<%=CityCol.CityId%>"><%=CityCol.CityName %></option>
                         <% }  %>
                     </select>
                     <% }
                        }  %>
                 </div>
-
                 <input type="hidden" value="<% =_Page.Location %>" name="page" />
                 <button type="submit" data-theme="b">Search</button>
             </div>

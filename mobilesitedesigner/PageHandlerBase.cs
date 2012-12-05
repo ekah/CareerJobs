@@ -78,18 +78,7 @@ namespace mobilesitedesigner
 
      
 
-        public SqlConnection JobsSqlConnection
-        {
-
-            get
-            {
-                SqlConnection _SqlConnection = new SqlConnection(Common.JobsDataConnectionString);
-                _connections.Add(_SqlConnection);
-                _SqlConnection.Open();
-                return _SqlConnection;
-            }
-        }
-      
+       
         protected void Page_PreInit(object sender, EventArgs e)
         {           
         }

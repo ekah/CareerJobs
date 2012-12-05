@@ -368,162 +368,6 @@ namespace mobilesitedesigner.Data.POCOS
 
 	}
     
-	[TableName("TBL_Job_Location")]
-	[ExplicitColumns]
-    public partial class TBL_Job_Location : DB.Record<TBL_Job_Location>  
-    {
-        [Column] 
-		public int Lid 
-		{ 
-			get
-			{
-				return _Lid;
-			}
-			set
-			{
-				_Lid = value;
-				MarkColumnModified("Lid");
-			}
-		}
-		int _Lid;
-
-        [Column] 
-		public int? CountryId 
-		{ 
-			get
-			{
-				return _CountryId;
-			}
-			set
-			{
-				_CountryId = value;
-				MarkColumnModified("CountryId");
-			}
-		}
-		int? _CountryId;
-
-        [Column] 
-		public int? StateId 
-		{ 
-			get
-			{
-				return _StateId;
-			}
-			set
-			{
-				_StateId = value;
-				MarkColumnModified("StateId");
-			}
-		}
-		int? _StateId;
-
-        [Column] 
-		public int? CityId 
-		{ 
-			get
-			{
-				return _CityId;
-			}
-			set
-			{
-				_CityId = value;
-				MarkColumnModified("CityId");
-			}
-		}
-		int? _CityId;
-
-        [Column] 
-		public bool? Visibility 
-		{ 
-			get
-			{
-				return _Visibility;
-			}
-			set
-			{
-				_Visibility = value;
-				MarkColumnModified("Visibility");
-			}
-		}
-		bool? _Visibility;
-
-        [Column] 
-		public int? ClientId 
-		{ 
-			get
-			{
-				return _ClientId;
-			}
-			set
-			{
-				_ClientId = value;
-				MarkColumnModified("ClientId");
-			}
-		}
-		int? _ClientId;
-
-        [Column] 
-		public DateTime? CreatedDate 
-		{ 
-			get
-			{
-				return _CreatedDate;
-			}
-			set
-			{
-				_CreatedDate = value;
-				MarkColumnModified("CreatedDate");
-			}
-		}
-		DateTime? _CreatedDate;
-
-        [Column] 
-		public DateTime? UpdatedDate 
-		{ 
-			get
-			{
-				return _UpdatedDate;
-			}
-			set
-			{
-				_UpdatedDate = value;
-				MarkColumnModified("UpdatedDate");
-			}
-		}
-		DateTime? _UpdatedDate;
-
-        [Column] 
-		public string WhoCreated 
-		{ 
-			get
-			{
-				return _WhoCreated;
-			}
-			set
-			{
-				_WhoCreated = value;
-				MarkColumnModified("WhoCreated");
-			}
-		}
-		string _WhoCreated;
-
-        [Column] 
-		public string WhoUpdated 
-		{ 
-			get
-			{
-				return _WhoUpdated;
-			}
-			set
-			{
-				_WhoUpdated = value;
-				MarkColumnModified("WhoUpdated");
-			}
-		}
-		string _WhoUpdated;
-
-	}
-    
 	[TableName("TBL_Master_Building")]
 	[ExplicitColumns]
     public partial class TBL_Master_Building : DB.Record<TBL_Master_Building>  
@@ -5679,132 +5523,6 @@ namespace mobilesitedesigner.Data.POCOS
 
 	}
     
-	[TableName("TBL_Job_Speciality")]
-	[ExplicitColumns]
-    public partial class TBL_Job_Speciality : DB.Record<TBL_Job_Speciality>  
-    {
-        [Column] 
-		public int SpcId 
-		{ 
-			get
-			{
-				return _SpcId;
-			}
-			set
-			{
-				_SpcId = value;
-				MarkColumnModified("SpcId");
-			}
-		}
-		int _SpcId;
-
-        [Column] 
-		public int? SpecialityId 
-		{ 
-			get
-			{
-				return _SpecialityId;
-			}
-			set
-			{
-				_SpecialityId = value;
-				MarkColumnModified("SpecialityId");
-			}
-		}
-		int? _SpecialityId;
-
-        [Column] 
-		public bool? Visibility 
-		{ 
-			get
-			{
-				return _Visibility;
-			}
-			set
-			{
-				_Visibility = value;
-				MarkColumnModified("Visibility");
-			}
-		}
-		bool? _Visibility;
-
-        [Column] 
-		public int? ClientId 
-		{ 
-			get
-			{
-				return _ClientId;
-			}
-			set
-			{
-				_ClientId = value;
-				MarkColumnModified("ClientId");
-			}
-		}
-		int? _ClientId;
-
-        [Column] 
-		public DateTime? CreatedDate 
-		{ 
-			get
-			{
-				return _CreatedDate;
-			}
-			set
-			{
-				_CreatedDate = value;
-				MarkColumnModified("CreatedDate");
-			}
-		}
-		DateTime? _CreatedDate;
-
-        [Column] 
-		public DateTime? UpdatedDate 
-		{ 
-			get
-			{
-				return _UpdatedDate;
-			}
-			set
-			{
-				_UpdatedDate = value;
-				MarkColumnModified("UpdatedDate");
-			}
-		}
-		DateTime? _UpdatedDate;
-
-        [Column] 
-		public string WhoCreated 
-		{ 
-			get
-			{
-				return _WhoCreated;
-			}
-			set
-			{
-				_WhoCreated = value;
-				MarkColumnModified("WhoCreated");
-			}
-		}
-		string _WhoCreated;
-
-        [Column] 
-		public string WhoUpdated 
-		{ 
-			get
-			{
-				return _WhoUpdated;
-			}
-			set
-			{
-				_WhoUpdated = value;
-				MarkColumnModified("WhoUpdated");
-			}
-		}
-		string _WhoUpdated;
-
-	}
-    
 	[TableName("TBL_Landing_MainTab")]
 	[PrimaryKey("MainTabId")]
 	[ExplicitColumns]
@@ -7348,207 +7066,6 @@ namespace mobilesitedesigner.Data.POCOS
 
 	}
     
-	[TableName("TBL_Job_Jobs")]
-	[ExplicitColumns]
-    public partial class TBL_Job_Job : DB.Record<TBL_Job_Job>  
-    {
-        [Column] 
-		public int Jid 
-		{ 
-			get
-			{
-				return _Jid;
-			}
-			set
-			{
-				_Jid = value;
-				MarkColumnModified("Jid");
-			}
-		}
-		int _Jid;
-
-        [Column] 
-		public string JobId 
-		{ 
-			get
-			{
-				return _JobId;
-			}
-			set
-			{
-				_JobId = value;
-				MarkColumnModified("JobId");
-			}
-		}
-		string _JobId;
-
-        [Column] 
-		public string JobTitle 
-		{ 
-			get
-			{
-				return _JobTitle;
-			}
-			set
-			{
-				_JobTitle = value;
-				MarkColumnModified("JobTitle");
-			}
-		}
-		string _JobTitle;
-
-        [Column] 
-		public int? Facility 
-		{ 
-			get
-			{
-				return _Facility;
-			}
-			set
-			{
-				_Facility = value;
-				MarkColumnModified("Facility");
-			}
-		}
-		int? _Facility;
-
-        [Column] 
-		public int? Speciality 
-		{ 
-			get
-			{
-				return _Speciality;
-			}
-			set
-			{
-				_Speciality = value;
-				MarkColumnModified("Speciality");
-			}
-		}
-		int? _Speciality;
-
-        [Column] 
-		public int? Location 
-		{ 
-			get
-			{
-				return _Location;
-			}
-			set
-			{
-				_Location = value;
-				MarkColumnModified("Location");
-			}
-		}
-		int? _Location;
-
-        [Column] 
-		public string Description 
-		{ 
-			get
-			{
-				return _Description;
-			}
-			set
-			{
-				_Description = value;
-				MarkColumnModified("Description");
-			}
-		}
-		string _Description;
-
-        [Column] 
-		public bool? Visibility 
-		{ 
-			get
-			{
-				return _Visibility;
-			}
-			set
-			{
-				_Visibility = value;
-				MarkColumnModified("Visibility");
-			}
-		}
-		bool? _Visibility;
-
-        [Column] 
-		public int? ClientId 
-		{ 
-			get
-			{
-				return _ClientId;
-			}
-			set
-			{
-				_ClientId = value;
-				MarkColumnModified("ClientId");
-			}
-		}
-		int? _ClientId;
-
-        [Column] 
-		public DateTime? CreatedDate 
-		{ 
-			get
-			{
-				return _CreatedDate;
-			}
-			set
-			{
-				_CreatedDate = value;
-				MarkColumnModified("CreatedDate");
-			}
-		}
-		DateTime? _CreatedDate;
-
-        [Column] 
-		public DateTime? UpdatedDate 
-		{ 
-			get
-			{
-				return _UpdatedDate;
-			}
-			set
-			{
-				_UpdatedDate = value;
-				MarkColumnModified("UpdatedDate");
-			}
-		}
-		DateTime? _UpdatedDate;
-
-        [Column] 
-		public string WhoCreated 
-		{ 
-			get
-			{
-				return _WhoCreated;
-			}
-			set
-			{
-				_WhoCreated = value;
-				MarkColumnModified("WhoCreated");
-			}
-		}
-		string _WhoCreated;
-
-        [Column] 
-		public string WhoUpdated 
-		{ 
-			get
-			{
-				return _WhoUpdated;
-			}
-			set
-			{
-				_WhoUpdated = value;
-				MarkColumnModified("WhoUpdated");
-			}
-		}
-		string _WhoUpdated;
-
-	}
-    
 	[TableName("TBL_Login")]
 	[PrimaryKey("LoginId")]
 	[ExplicitColumns]
@@ -8968,7 +8485,7 @@ namespace mobilesitedesigner.Data.POCOS
 		string _JobTitle;
 
         [Column] 
-		public int CityId 
+		public int? CityId 
 		{ 
 			get
 			{
@@ -8980,7 +8497,7 @@ namespace mobilesitedesigner.Data.POCOS
 				MarkColumnModified("CityId");
 			}
 		}
-		int _CityId;
+		int? _CityId;
 
         [Column] 
 		public string CityName 
@@ -8998,7 +8515,7 @@ namespace mobilesitedesigner.Data.POCOS
 		string _CityName;
 
         [Column] 
-		public int StateId 
+		public int? StateId 
 		{ 
 			get
 			{
@@ -9010,7 +8527,7 @@ namespace mobilesitedesigner.Data.POCOS
 				MarkColumnModified("StateId");
 			}
 		}
-		int _StateId;
+		int? _StateId;
 
         [Column] 
 		public string StateName 
@@ -9043,7 +8560,7 @@ namespace mobilesitedesigner.Data.POCOS
 		string _StateCode;
 
         [Column] 
-		public int CountryId 
+		public int? CountryId 
 		{ 
 			get
 			{
@@ -9055,7 +8572,7 @@ namespace mobilesitedesigner.Data.POCOS
 				MarkColumnModified("CountryId");
 			}
 		}
-		int _CountryId;
+		int? _CountryId;
 
         [Column] 
 		public string CountryCode 
@@ -9133,36 +8650,6 @@ namespace mobilesitedesigner.Data.POCOS
 		int? _ClientId;
 
         [Column] 
-		public string Facility 
-		{ 
-			get
-			{
-				return _Facility;
-			}
-			set
-			{
-				_Facility = value;
-				MarkColumnModified("Facility");
-			}
-		}
-		string _Facility;
-
-        [Column] 
-		public int FacId 
-		{ 
-			get
-			{
-				return _FacId;
-			}
-			set
-			{
-				_FacId = value;
-				MarkColumnModified("FacId");
-			}
-		}
-		int _FacId;
-
-        [Column] 
 		public int? SpecialityId 
 		{ 
 			get
@@ -9178,19 +8665,79 @@ namespace mobilesitedesigner.Data.POCOS
 		int? _SpecialityId;
 
         [Column] 
-		public string DepartmentName 
+		public DateTime? CreatedDate 
 		{ 
 			get
 			{
-				return _DepartmentName;
+				return _CreatedDate;
 			}
 			set
 			{
-				_DepartmentName = value;
-				MarkColumnModified("DepartmentName");
+				_CreatedDate = value;
+				MarkColumnModified("CreatedDate");
 			}
 		}
-		string _DepartmentName;
+		DateTime? _CreatedDate;
+
+        [Column] 
+		public string Description 
+		{ 
+			get
+			{
+				return _Description;
+			}
+			set
+			{
+				_Description = value;
+				MarkColumnModified("Description");
+			}
+		}
+		string _Description;
+
+        [Column] 
+		public string Speciality 
+		{ 
+			get
+			{
+				return _Speciality;
+			}
+			set
+			{
+				_Speciality = value;
+				MarkColumnModified("Speciality");
+			}
+		}
+		string _Speciality;
+
+        [Column] 
+		public int? FacId 
+		{ 
+			get
+			{
+				return _FacId;
+			}
+			set
+			{
+				_FacId = value;
+				MarkColumnModified("FacId");
+			}
+		}
+		int? _FacId;
+
+        [Column] 
+		public string Facility 
+		{ 
+			get
+			{
+				return _Facility;
+			}
+			set
+			{
+				_Facility = value;
+				MarkColumnModified("Facility");
+			}
+		}
+		string _Facility;
 
 	}
     
@@ -9430,6 +8977,51 @@ namespace mobilesitedesigner.Data.POCOS
 			}
 		}
 		int? _ClientID;
+
+        [Column] 
+		public bool? Def 
+		{ 
+			get
+			{
+				return _Def;
+			}
+			set
+			{
+				_Def = value;
+				MarkColumnModified("Def");
+			}
+		}
+		bool? _Def;
+
+        [Column] 
+		public string Text 
+		{ 
+			get
+			{
+				return _Text;
+			}
+			set
+			{
+				_Text = value;
+				MarkColumnModified("Text");
+			}
+		}
+		string _Text;
+
+        [Column] 
+		public bool? Locked 
+		{ 
+			get
+			{
+				return _Locked;
+			}
+			set
+			{
+				_Locked = value;
+				MarkColumnModified("Locked");
+			}
+		}
+		bool? _Locked;
 
 	}
     
@@ -9726,6 +9318,21 @@ namespace mobilesitedesigner.Data.POCOS
 			}
 		}
 		int? _ClientID;
+
+        [Column] 
+		public bool? Locked 
+		{ 
+			get
+			{
+				return _Locked;
+			}
+			set
+			{
+				_Locked = value;
+				MarkColumnModified("Locked");
+			}
+		}
+		bool? _Locked;
 
 	}
     
@@ -10229,6 +9836,378 @@ namespace mobilesitedesigner.Data.POCOS
 
 	}
     
+	[TableName("TBL_Job_Speciality")]
+	[ExplicitColumns]
+    public partial class TBL_Job_Speciality : DB.Record<TBL_Job_Speciality>  
+    {
+        [Column] 
+		public int SpcId 
+		{ 
+			get
+			{
+				return _SpcId;
+			}
+			set
+			{
+				_SpcId = value;
+				MarkColumnModified("SpcId");
+			}
+		}
+		int _SpcId;
+
+        [Column] 
+		public int? SpecialityId 
+		{ 
+			get
+			{
+				return _SpecialityId;
+			}
+			set
+			{
+				_SpecialityId = value;
+				MarkColumnModified("SpecialityId");
+			}
+		}
+		int? _SpecialityId;
+
+        [Column] 
+		public string Speciality 
+		{ 
+			get
+			{
+				return _Speciality;
+			}
+			set
+			{
+				_Speciality = value;
+				MarkColumnModified("Speciality");
+			}
+		}
+		string _Speciality;
+
+        [Column] 
+		public bool? Visibility 
+		{ 
+			get
+			{
+				return _Visibility;
+			}
+			set
+			{
+				_Visibility = value;
+				MarkColumnModified("Visibility");
+			}
+		}
+		bool? _Visibility;
+
+        [Column] 
+		public int? ClientId 
+		{ 
+			get
+			{
+				return _ClientId;
+			}
+			set
+			{
+				_ClientId = value;
+				MarkColumnModified("ClientId");
+			}
+		}
+		int? _ClientId;
+
+        [Column] 
+		public DateTime? CreatedDate 
+		{ 
+			get
+			{
+				return _CreatedDate;
+			}
+			set
+			{
+				_CreatedDate = value;
+				MarkColumnModified("CreatedDate");
+			}
+		}
+		DateTime? _CreatedDate;
+
+        [Column] 
+		public DateTime? UpdatedDate 
+		{ 
+			get
+			{
+				return _UpdatedDate;
+			}
+			set
+			{
+				_UpdatedDate = value;
+				MarkColumnModified("UpdatedDate");
+			}
+		}
+		DateTime? _UpdatedDate;
+
+        [Column] 
+		public string WhoCreated 
+		{ 
+			get
+			{
+				return _WhoCreated;
+			}
+			set
+			{
+				_WhoCreated = value;
+				MarkColumnModified("WhoCreated");
+			}
+		}
+		string _WhoCreated;
+
+        [Column] 
+		public string WhoUpdated 
+		{ 
+			get
+			{
+				return _WhoUpdated;
+			}
+			set
+			{
+				_WhoUpdated = value;
+				MarkColumnModified("WhoUpdated");
+			}
+		}
+		string _WhoUpdated;
+
+	}
+    
+	[TableName("TBL_Job_Location")]
+	[ExplicitColumns]
+    public partial class TBL_Job_Location : DB.Record<TBL_Job_Location>  
+    {
+        [Column] 
+		public int Lid 
+		{ 
+			get
+			{
+				return _Lid;
+			}
+			set
+			{
+				_Lid = value;
+				MarkColumnModified("Lid");
+			}
+		}
+		int _Lid;
+
+        [Column] 
+		public string Country 
+		{ 
+			get
+			{
+				return _Country;
+			}
+			set
+			{
+				_Country = value;
+				MarkColumnModified("Country");
+			}
+		}
+		string _Country;
+
+        [Column] 
+		public string State 
+		{ 
+			get
+			{
+				return _State;
+			}
+			set
+			{
+				_State = value;
+				MarkColumnModified("State");
+			}
+		}
+		string _State;
+
+        [Column] 
+		public string City 
+		{ 
+			get
+			{
+				return _City;
+			}
+			set
+			{
+				_City = value;
+				MarkColumnModified("City");
+			}
+		}
+		string _City;
+
+        [Column] 
+		public string CountryCode 
+		{ 
+			get
+			{
+				return _CountryCode;
+			}
+			set
+			{
+				_CountryCode = value;
+				MarkColumnModified("CountryCode");
+			}
+		}
+		string _CountryCode;
+
+        [Column] 
+		public string StateCode 
+		{ 
+			get
+			{
+				return _StateCode;
+			}
+			set
+			{
+				_StateCode = value;
+				MarkColumnModified("StateCode");
+			}
+		}
+		string _StateCode;
+
+        [Column] 
+		public int? CountryId 
+		{ 
+			get
+			{
+				return _CountryId;
+			}
+			set
+			{
+				_CountryId = value;
+				MarkColumnModified("CountryId");
+			}
+		}
+		int? _CountryId;
+
+        [Column] 
+		public int? StateId 
+		{ 
+			get
+			{
+				return _StateId;
+			}
+			set
+			{
+				_StateId = value;
+				MarkColumnModified("StateId");
+			}
+		}
+		int? _StateId;
+
+        [Column] 
+		public int? CityId 
+		{ 
+			get
+			{
+				return _CityId;
+			}
+			set
+			{
+				_CityId = value;
+				MarkColumnModified("CityId");
+			}
+		}
+		int? _CityId;
+
+        [Column] 
+		public bool? Visibility 
+		{ 
+			get
+			{
+				return _Visibility;
+			}
+			set
+			{
+				_Visibility = value;
+				MarkColumnModified("Visibility");
+			}
+		}
+		bool? _Visibility;
+
+        [Column] 
+		public int? ClientId 
+		{ 
+			get
+			{
+				return _ClientId;
+			}
+			set
+			{
+				_ClientId = value;
+				MarkColumnModified("ClientId");
+			}
+		}
+		int? _ClientId;
+
+        [Column] 
+		public DateTime? CreatedDate 
+		{ 
+			get
+			{
+				return _CreatedDate;
+			}
+			set
+			{
+				_CreatedDate = value;
+				MarkColumnModified("CreatedDate");
+			}
+		}
+		DateTime? _CreatedDate;
+
+        [Column] 
+		public DateTime? UpdatedDate 
+		{ 
+			get
+			{
+				return _UpdatedDate;
+			}
+			set
+			{
+				_UpdatedDate = value;
+				MarkColumnModified("UpdatedDate");
+			}
+		}
+		DateTime? _UpdatedDate;
+
+        [Column] 
+		public string WhoCreated 
+		{ 
+			get
+			{
+				return _WhoCreated;
+			}
+			set
+			{
+				_WhoCreated = value;
+				MarkColumnModified("WhoCreated");
+			}
+		}
+		string _WhoCreated;
+
+        [Column] 
+		public string WhoUpdated 
+		{ 
+			get
+			{
+				return _WhoUpdated;
+			}
+			set
+			{
+				_WhoUpdated = value;
+				MarkColumnModified("WhoUpdated");
+			}
+		}
+		string _WhoUpdated;
+
+	}
+    
 	[TableName("TBL_Admin_LoginType")]
 	[PrimaryKey("LoginTypeId", autoIncrement=false)]
 	[ExplicitColumns]
@@ -10263,6 +10242,252 @@ namespace mobilesitedesigner.Data.POCOS
 			}
 		}
 		string _LoginType;
+
+	}
+    
+	[TableName("TBL_Job_Jobs")]
+	[ExplicitColumns]
+    public partial class TBL_Job_Job : DB.Record<TBL_Job_Job>  
+    {
+        [Column] 
+		public int Jid 
+		{ 
+			get
+			{
+				return _Jid;
+			}
+			set
+			{
+				_Jid = value;
+				MarkColumnModified("Jid");
+			}
+		}
+		int _Jid;
+
+        [Column] 
+		public string JobId 
+		{ 
+			get
+			{
+				return _JobId;
+			}
+			set
+			{
+				_JobId = value;
+				MarkColumnModified("JobId");
+			}
+		}
+		string _JobId;
+
+        [Column] 
+		public string JobTitle 
+		{ 
+			get
+			{
+				return _JobTitle;
+			}
+			set
+			{
+				_JobTitle = value;
+				MarkColumnModified("JobTitle");
+			}
+		}
+		string _JobTitle;
+
+        [Column] 
+		public int? Facility 
+		{ 
+			get
+			{
+				return _Facility;
+			}
+			set
+			{
+				_Facility = value;
+				MarkColumnModified("Facility");
+			}
+		}
+		int? _Facility;
+
+        [Column] 
+		public int? Speciality 
+		{ 
+			get
+			{
+				return _Speciality;
+			}
+			set
+			{
+				_Speciality = value;
+				MarkColumnModified("Speciality");
+			}
+		}
+		int? _Speciality;
+
+        [Column] 
+		public int? Department 
+		{ 
+			get
+			{
+				return _Department;
+			}
+			set
+			{
+				_Department = value;
+				MarkColumnModified("Department");
+			}
+		}
+		int? _Department;
+
+        [Column] 
+		public int? Location 
+		{ 
+			get
+			{
+				return _Location;
+			}
+			set
+			{
+				_Location = value;
+				MarkColumnModified("Location");
+			}
+		}
+		int? _Location;
+
+        [Column] 
+		public string Description 
+		{ 
+			get
+			{
+				return _Description;
+			}
+			set
+			{
+				_Description = value;
+				MarkColumnModified("Description");
+			}
+		}
+		string _Description;
+
+        [Column] 
+		public string URL 
+		{ 
+			get
+			{
+				return _URL;
+			}
+			set
+			{
+				_URL = value;
+				MarkColumnModified("URL");
+			}
+		}
+		string _URL;
+
+        [Column] 
+		public bool? Visibility 
+		{ 
+			get
+			{
+				return _Visibility;
+			}
+			set
+			{
+				_Visibility = value;
+				MarkColumnModified("Visibility");
+			}
+		}
+		bool? _Visibility;
+
+        [Column] 
+		public int? ClientId 
+		{ 
+			get
+			{
+				return _ClientId;
+			}
+			set
+			{
+				_ClientId = value;
+				MarkColumnModified("ClientId");
+			}
+		}
+		int? _ClientId;
+
+        [Column] 
+		public DateTime? CreatedDate 
+		{ 
+			get
+			{
+				return _CreatedDate;
+			}
+			set
+			{
+				_CreatedDate = value;
+				MarkColumnModified("CreatedDate");
+			}
+		}
+		DateTime? _CreatedDate;
+
+        [Column] 
+		public DateTime? UpdatedDate 
+		{ 
+			get
+			{
+				return _UpdatedDate;
+			}
+			set
+			{
+				_UpdatedDate = value;
+				MarkColumnModified("UpdatedDate");
+			}
+		}
+		DateTime? _UpdatedDate;
+
+        [Column] 
+		public string WhoCreated 
+		{ 
+			get
+			{
+				return _WhoCreated;
+			}
+			set
+			{
+				_WhoCreated = value;
+				MarkColumnModified("WhoCreated");
+			}
+		}
+		string _WhoCreated;
+
+        [Column] 
+		public string WhoUpdated 
+		{ 
+			get
+			{
+				return _WhoUpdated;
+			}
+			set
+			{
+				_WhoUpdated = value;
+				MarkColumnModified("WhoUpdated");
+			}
+		}
+		string _WhoUpdated;
+
+        [Column] 
+		public string extractedInLatestrun 
+		{ 
+			get
+			{
+				return _extractedInLatestrun;
+			}
+			set
+			{
+				_extractedInLatestrun = value;
+				MarkColumnModified("extractedInLatestrun");
+			}
+		}
+		string _extractedInLatestrun;
 
 	}
     

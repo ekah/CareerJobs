@@ -53,7 +53,10 @@
                                                                 </li>
                                                                 <li id="liAddClient" runat="server"><a id="addClient" runat="server" href="Job_AddClient.aspx"
                                                                     class="BluBtnNew">
-                                                                   <span>Add Client</span></a><br />
+                                                                   <span>Add Client</span></a>
+                                                                   <a id="viewClient" runat="server" style="margin-left:5px;" href="Job_ClientView.aspx"
+                                                                    class="BluBtnNew">
+                                                                   <span>View Client</span></a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -122,7 +125,7 @@
                                                 <div class="adddatapanelbtm">
                                                     <img src="../ImagesNew/jobs/manageadminboxbgbtm.png" alt="" /></div>
                                             </div>
-                                            <asp:LinkButton runat="server" ID="lbtnBackToAbmin" style="float:right;" OnClick="lbtnBackToAbmin_Click" CssClass="BluBtnNew"><span>Back to Admin</span></asp:LinkButton>
+                                            <%--<asp:LinkButton runat="server" ID="lbtnBackToAbmin" style="float:right;" OnClick="lbtnBackToAbmin_Click" CssClass="BluBtnNew"><span>Back to Admin</span></asp:LinkButton>--%>
                                         </div>
                                     </div>
                                 </div>

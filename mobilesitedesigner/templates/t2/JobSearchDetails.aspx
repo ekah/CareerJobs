@@ -23,15 +23,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link href="../client/lib/jquery.mobile-1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" />
-    <link href="../client/lib/jquery.mobile-1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    
+    <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.css" rel="stylesheet" />
+    <link href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.theme-1.2.0.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#sMail').click(function () {
+
+            });
+        });
+    </script>
 </head>
 <body>
     <div data-role="page">
-
         <% if (_Page != null)
            { %>
         <div data-role="header">
@@ -46,17 +51,17 @@
         </div>
         <!-- /header -->
         <% }  %>
-    
+
 
         <div data-role="content">
             <ul data-role="listview">
                 <% 
                     int clientid = mobilesitedesigner.Common.GetClientID(Request.Path.Split('/')[2]);
                     var SearchDescriptionCols = (from o in GetDataContext2.TBL_Job_SearchDescriptionColVisible
-                                                  where o.ClientId == clientid
-                                                  select o).Distinct();
-                     foreach (var SearchDescriptionCol in SearchDescriptionCols)
-                     { %>
+                                                 where o.ClientId == clientid
+                                                 select o).Distinct();
+                    foreach (var SearchDescriptionCol in SearchDescriptionCols)
+                    { %>
                 <%if (SearchDescriptionCol.JobTitle ?? false)
                   { %>
                 <li style="display: block">Job Title:<% =Job.JobTitle %></li>
@@ -67,7 +72,7 @@
                 <%} %>
                 <%if (SearchDescriptionCol.Speciality ?? false)
                   { %>
-                <li style="display: block">Job Speciality:<% =Job.DepartmentName %></li>
+                <li style="display: block">Job Speciality:<% =Job.Speciality %></li>
                 <%} %>
                 <%if (SearchDescriptionCol.PostedDate ?? false)
                   { %>
@@ -90,6 +95,8 @@
                 <li style="display: block">Job City:<% =Job.CityName %></li>
                 <%} %>
                 <% }  %>
+                <li style="display: block">
+                    <button id="sMail">Send Mail</button></li>
             </ul>
         </div>
         <!-- /content -->

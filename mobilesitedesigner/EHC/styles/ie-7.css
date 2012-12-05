@@ -1,0 +1,23 @@
+.footer-specific ol									{ margin: 15px 0 0 17px; list-style:none;}
+.MainWrapper .Content .LeftWrap	.StayWrap .Padd p	{ padding:10px 0 17px 0; clear:both;}
+#disclosure-1										{ background:url(images/ol-list.gif) left top no-repeat;}
+.MiddleWrap .cufon,#leftNav .cufon					{ float:left; }
+.MainWrapper .Content .MiddleWrap h1 				{    padding: 0 0 10px;}
+.MainWrapper .Content .MiddleWrap h1 a:link, 
+.MainWrapper .Content .MiddleWrap h1 a:active, 
+.MainWrapper .Content .MiddleWrap h1 a:visited, 
+.MainWrapper .Content .MiddleWrap h1 a:hover		{ padding: 5px 0 0 3px;}
+
+ul.secNav li.sec_subNav								{ padding:0 !important;}
+ul.secNav li.sec_subNav a							{ padding: 9px 0 10px;}
+ul.secNav li										{ padding: 5px 0 8px !important;}
+ul.subNav li 										{ padding: 0px 0 5px !important;}
+
+.MainWrapper .Content .RightWrap .title h3			{ padding: 15px 0 15px 15px;}
+.MainWrapper .Content .MiddleWrap .CareersE			{ padding: 0 0 40px;}
+
+.MainWrapper .Content .LeftWrap	.StayWrap .Padd .up	{ background:url(images/Arrow-stay.gif) 137px -16px no-repeat;}
+
+.MainWrapper .Content .MiddleWrap .SearchInner .Padd h5{ margin:-3px 0 0 0;}
+
+

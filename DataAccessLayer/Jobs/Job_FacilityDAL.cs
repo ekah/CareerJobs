@@ -14,6 +14,10 @@ namespace MedAppointments.DataAccessLayer
         {        
             return SqlHelper.ExecuteDataset(ConnectionString, "USP_Job_SelectFacility", null);
         }
+        public DataSet SelectClient()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "USP_Job_SelectClient", null);
+        }
         public DataSet FacilitySelectByClientID(int clientid)
         {
             SqlParameter[] objprmArray = new SqlParameter[1];

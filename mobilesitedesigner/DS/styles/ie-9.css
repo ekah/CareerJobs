@@ -1,0 +1,8 @@
+ul.secNav li{ padding:11px 0 10px 0;}
+ul.subNav li{ padding:5px 0;}
+.MainWrapper .Content .RightWrap .CareerAreasWrap .CareerAreasInner a:link,
+.MainWrapper .Content .RightWrap .CareerAreasWrap .CareerAreasInner a:active,
+.MainWrapper .Content .RightWrap .CareerAreasWrap .CareerAreasInner a:visited,
+.MainWrapper .Content .RightWrap .CareerAreasWrap .CareerAreasInner a:hover{ background:url(images/laern-more-arrow.gif) right 4px no-repeat; }
+
+.TopMenu .row-two{height: 63px;}

@@ -23,6 +23,7 @@ using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Configuration;
+using System.Net.Mail;
 
 namespace mobilesitedesigner
 {
@@ -41,7 +42,7 @@ namespace mobilesitedesigner
             req = context.Request;
             res = context.Response;
             base.ProcessRequest(context);
-            switch (context.Request.QueryString["t"])
+            switch (p["t"])
             {
                 case "setcontent":
                     SetContent(context);
@@ -55,8 +56,40 @@ namespace mobilesitedesigner
                 case "gencontent":
                     GenContent(context);
                     break;
+                case "sendemail":
+                    SendEmail(context);
+                    break;
+                case "deletepage":
+                    DeletePage(context);
+                    break;
+                case "setcode":
+                    SetCode(context);
+                    break;
             }
             base.EndRequest(context);
+        }
+
+        private void SetCode(HttpContext context)
+        {
+            File.WriteAllText(req.MapPath(p["file"]),p["content"]);           
+        }
+
+        private void DeletePage(HttpContext context)
+        {
+            GetDataContext1.Delete<Data.POCOS.Page>(int.Parse(p["id"]));
+        }
+
+        private void SendEmail(HttpContext context)
+        {
+            string jobid = p["jobid"];
+            string email = p["email"];
+            var Job = GetDataContext2.VW_Jobs.First(o => o.JobId == jobid);
+            SmtpClient client = new SmtpClient();
+            MailMessage mess = new MailMessage("support@mobilecws.com", email);
+            mess.Body = Job.Description;
+            mess.Subject = Job.JobTitle;
+            mess.IsBodyHtml = true;
+            client.Send(mess);
         }
 
         private void SavePage(HttpContext context)
@@ -75,10 +108,13 @@ namespace mobilesitedesigner
                 page.HeaderText = p["HeaderText"];
                 page.Location = p["Location"];
                 page.MainSite = p["MainSite"];
+                page.Text = p["Text"];
+                page.Def = !string.IsNullOrEmpty(p["Def"]);
+                page.Locked = !string.IsNullOrEmpty(p["Locked"]);
                 page.ClientID = clientID;
-                if (context.Request.Files.Count > 0)
+                if (req.Files.Count > 0)
                 {
-                    HttpPostedFile file = context.Request.Files["HeaderImage"];
+                    HttpPostedFile file = req.Files["HeaderImage"];
                     if (file.ContentLength > 0)
                     {
                         string filename = file.FileName;
@@ -86,7 +122,7 @@ namespace mobilesitedesigner
                         file.SaveAs(filepath);
                         page.HeaderImage = filename;
                     }
-                    file = context.Request.Files["FooterImage"];
+                    file = req.Files["FooterImage"];
                     if (file.ContentLength > 0)
                     {
                         string filename = file.FileName;
@@ -94,7 +130,7 @@ namespace mobilesitedesigner
                         file.SaveAs(filepath);
                         page.FooterImage = filename;
                     }
-                    file = context.Request.Files["PageImage"];
+                    file = req.Files["PageImage"];
                     if (file.ContentLength > 0)
                     {
 
@@ -106,13 +142,14 @@ namespace mobilesitedesigner
                 }
                 page.Save();
             }
-            context.Response.WriteJsonSuccess();
+            res.WriteJsonSuccess();
         }
 
 
         private void GenContent(HttpContext context)
         {
             HttpCookie cookie = req.Cookies["client"];
+            StringWriter writer;
             if (cookie != null)
             {
                 int clientID = int.Parse(cookie.Value);
@@ -127,21 +164,39 @@ namespace mobilesitedesigner
                             Directory.CreateDirectory(dir);
                         var query = GetDataContext2.Page.Where(o => o.ClientID == clientID);
                         string root = Path.Combine(context.Server.MapPath("~"), "templates", tmpl);
+                        Common.CopyDirectory(Path.Combine(root, "script"), Path.Combine(dir, "script"), true);
+                        Common.CopyDirectory(Path.Combine(root, "styles"), Path.Combine(dir, "styles"), true);
+                        Common.CopyDirectory(Path.Combine(root, "images"), Path.Combine(dir, "images"), true);
                         File.Copy(Path.Combine(root, "JobSearch.aspx"), Path.Combine(dir, "JobSearch.aspx"), true);
                         File.Copy(Path.Combine(root, "JobSearchDetails.aspx"), Path.Combine(dir, "JobSearchDetails.aspx"), true);
-                        foreach (var page in query)
+                        var _Page = query.First(o => (o.Def ?? false));
+                        var _Pages = query.Where(o => !(o.Def ?? false));
+                        if (!(_Page.Locked ?? false))
                         {
-                            StringWriter writer = new StringWriter();
+                            writer = new StringWriter();
                             writer.WriteLine(@"<%@ Page Language=""C#"" AutoEventWireup=""true""  Inherits=""mobilesitedesigner.PageHandlerBase"" %>");
-                            context.Server.Execute(string.Format("templates/{1}/Home.aspx?pageid={0}", page.ID, tmpl), writer);
-                            File.WriteAllText(Path.Combine(dir, page.Location + ".aspx"), writer.ToString().Replace("<#", "<%").Replace("#>", "%>"));
+                            context.Server.Execute(string.Format("templates/{1}/Default.aspx?clientid={0}", clientID, tmpl), writer);
+                            File.WriteAllText(Path.Combine(dir, _Page.Location + ".aspx"), writer.ToString().Replace("<#", "<%").Replace("#>", "%>"));
+                        }
+                        foreach (var page in _Pages)
+                        {
+                            if (!(page.Locked??false))
+                            {
+                                writer = new StringWriter();
+                                writer.WriteLine(@"<%@ Page Language=""C#"" AutoEventWireup=""true""  Inherits=""mobilesitedesigner.PageHandlerBase"" %>");
+                                context.Server.Execute(string.Format("templates/{1}/Home.aspx?pageid={0}", page.ID, tmpl), writer);
+                                File.WriteAllText(Path.Combine(dir, page.Location + ".aspx"), writer.ToString().Replace("<#", "<%").Replace("#>", "%>"));
+                            }
                             var contents = page.Content.ToList();
                             foreach (var content in contents)
                             {
-                                StringWriter writer1 = new StringWriter();
-                                writer1.WriteLine(@"<%@ Page Language=""C#"" AutoEventWireup=""true""  Inherits=""mobilesitedesigner.PageHandlerBase"" %>");
-                                context.Server.Execute(string.Format("templates/{1}/Content.aspx?id={0}", content.ID, tmpl), writer1);
-                                File.WriteAllText(Path.Combine(dir, content.Title + ".aspx"), writer1.ToString().Replace("<#", "<%").Replace("#>", "%>"));
+                                if (!(content.Locked ?? false))
+                                {
+                                    writer = new StringWriter();
+                                    writer.WriteLine(@"<%@ Page Language=""C#"" AutoEventWireup=""true""  Inherits=""mobilesitedesigner.PageHandlerBase"" %>");
+                                    context.Server.Execute(string.Format("templates/{1}/Content.aspx?id={0}", content.ID, tmpl), writer);
+                                    File.WriteAllText(Path.Combine(dir, content.Title + ".aspx"), writer.ToString().Replace("<#", "<%").Replace("#>", "%>"));
+                                }
                             }
                         }
                         context.Response.WriteJsonSuccess();
@@ -177,6 +232,7 @@ namespace mobilesitedesigner
                     content.Title = p["Title"];
                     content.Text = p["Text"];
                     content.PageID = int.Parse(PageID);
+                    content.Locked = !string.IsNullOrEmpty(p["Locked"]);
                     content.ClientID = clientID;
                     if (context.Request.Files.Count > 0)
                     {
